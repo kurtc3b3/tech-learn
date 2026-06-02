@@ -1,0 +1,4 @@
+- nltk
+- gensim
+- spacy
+- textblob
