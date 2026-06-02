@@ -7,7 +7,7 @@
 - **Logging:** Setup logging and progress with `logging` and `tqdm` [[Python — logging]] [[Python — tqdm]]
 - **Configuration:** Setup settings using `pydantic-settings` or `python-dotenv` [[Python — Pydantic]] [[Python — python-dotenv]]
 - **Framework:** Create base classes with `abc`, develop `decorators` [[Python — abc]] [[Python — functools]]
-- **Web Scraping and Automation:** Create base scrapers with `httpx`, `playwright`, `scrapy` with `tenacity`, extract data with `bs4`, run with `asyncio`. Transform html to markdown with `markdownify`. For AI based use `crawl4ai` or `scrapegraphai` [TODO: Concept and Codes]
+- **Web Scraping and Automation:** Create base scrapers with `httpx`, `playwright`, `scrapy` with `tenacity`, extract data with `bs4`, run with `asyncio`. Transform html to markdown with `markdownify`. For AI based use `crawl4ai` or `scrapegraphai` [[Browser Automation]] [[Browser Automation — Playwright]] [[Browser Automation — Scrapy]] [[Browser Automation — crawl4ai]] [[Browser Automation — ScrapeGraphAI]] [[Browser Automation — Scrapling]]
 - **API:** Setup api project with `fastapi`, serve with `uvicorn`. Serve models with `bentoml` and `seldon` [[API - FastAPI]]
 - **Data Models:** Template queries with `jinja2`, use file operations with `pathlib`, create data models with `pydantic` and `dataclasses`, create ORMs with `sqlalchemy` [[Python — Jinja2 Package]] [[Python — pathlib]] [[Python — Pydantic]] [[ORM - SQLAlchemy]]
 - **CLI:** Create CLIs with `click`, `rich`, `argparse` and `typer` [[Python — Click & Rich]] [[Python — Typer]] [[Python — argparse]]
