@@ -285,17 +285,21 @@ Serve with **Uvicorn** (ASGI); call outbound services with a shared **httpx** cl
 | Rich tables/progress | Click + Rich | [[Python — Click & Rich]] |
 | Stdlib only | argparse | [[Python — argparse]] |
 
-### Phase 7 — AI, ML, and background work (planned)
+### Phase 7 — AI applications
 
-Tracked in inbox; concept stubs exist:
+See [[AI]] for the full stack map, learning path, and all Codes notes.
 
-| Area | Status | References |
-| --- | --- | --- |
-| LLM apps / agents | TODO | [[AI]] — langchain, langgraph, crewai, MCP |
-| Document parsing | TODO | docling |
-| Feature store / MLOps | TODO | feast, mlflow |
-| Distributed tasks | TODO | [[Processing]] — Celery, Ray |
-| Model serving | TODO | bentoml, seldon |
+| Area | References |
+| --- | --- |
+| Overview & RAG pipeline | [[AI]] |
+| Orchestration | [[AI — LangChain]], [[AI — LangGraph]], [[AI — Haystack]], [[AI — LlamaIndex]] |
+| Document parsing | [[AI — Docling]], [[AI — MegaParse]] |
+| Vector stores | [[AI — Chroma]], [[AI — FAISS]], [[AI — Qdrant]], [[AI — Milvus]] |
+| Multi-agent / typed agents | [[AI — CrewAI]], [[AI — Agno]], [[AI — Pydantic AI]], [[AI — DSPy]] |
+| Protocols | [[AI — MCP]], [[AI — A2A]], [[AI — ACP]] |
+| Evaluation & memory | [[AI — RAGAS]], [[AI — Mem0]] |
+| MLOps / tasks (planned) | feast, mlflow, [[Processing]] — Celery, Ray |
+| Model serving (planned) | bentoml, seldon |
 
 ### Phase 8 — Anti-bot and proxies (planned)
 
@@ -397,7 +401,6 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 | ------------------------------------------- | ---------------------------------------------- |
 | playwright, scrapy, crawl4ai, scrapegraphai | Browser and framework scraping                 |
 | bentoml, seldon                             | Model serving                                  |
-| langchain, langgraph, crewai, MCP           | AI applications                                |
 | camoufox, botright, botasaurus, brightdata  | Anti-bot and proxies                           |
 
 ---
@@ -409,7 +412,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Unit Testing - pytest]] — quality
 - [[Linting]] — static checks
 - [[Browser Automation]] — scraping beyond httpx
-- [[AI]] — LLM and agent stack (in progress)
+- [[AI]] — LLM, RAG, agents, vector stores, protocols
 - [[Processing]] — Celery, Ray (in progress)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
