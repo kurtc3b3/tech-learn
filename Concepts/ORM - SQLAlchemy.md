@@ -18,3 +18,4 @@ A few things worth highlighting that catch people out:
 - In async SQLAlchemy, **lazy loading relationships will raise a `MissingGreenlet` error** — always use `selectinload()` or `joinedload()` in your queries.
 - For async PostgreSQL use `asyncpg` as the driver (`postgresql+asyncpg://...`), and for async SQLite use `aiosqlite` (`sqlite+aiosqlite://...`).
 - Alembic itself runs synchronously even if your app is async — use `conn.run_sync()` to bridge them in `env.py`.
+- Non-relational stores (Redis, Kafka, Mongo, etc.) — see [[DB]]; this concept covers **SQLAlchemy / relational** persistence only.

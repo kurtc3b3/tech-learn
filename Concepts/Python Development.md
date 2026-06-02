@@ -375,6 +375,22 @@ See [[K8S]] for the object model; **Codes** notes hold YAML patterns, **Commands
 | kubectl & Minikube | [[Commands/K8S — kubectl & Minikube]] |
 | ML on cluster | [[ML — Seldon]], [[ML — BentoML]] |
 
+### Phase 10 — Data stores & observability
+
+See [[DB]] for Redis, brokers, document/graph/time-series DBs, and observability. **Relational OLTP** stays under [[ORM - SQLAlchemy]].
+
+| Area | References |
+| --- | --- |
+| Overview & decision flow | [[DB]] |
+| Cache / Celery backend | [[DB — Redis]] |
+| Event streaming | [[DB — Kafka]] |
+| Task broker (AMQP) | [[DB — RabbitMQ]] |
+| Document store | [[DB — MongoDB]] |
+| Graph database | [[DB — Neo4j]] |
+| Time series | [[DB — InfluxDB]] |
+| Log search | [[DB — ELK]] |
+| Metrics & dashboards | [[DB — Prometheus & Grafana]] |
+
 ---
 
 ## Library Index (All Python Codes Notes)
@@ -452,6 +468,18 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Python — SQLModel]]
 - [[ORM - SQLAlchemy]] (concept) → [[ORM - Setup]], [[ORM - Models]], [[ORM - CRUD]], [[ORM - Queries]], [[ORM - Async]], [[ORM - Migrations]]
 
+### Data platform (non-relational & observability)
+
+- [[DB]] — concept hub
+- [[DB — Redis]]
+- [[DB — Kafka]]
+- [[DB — RabbitMQ]]
+- [[DB — MongoDB]]
+- [[DB — Neo4j]]
+- [[DB — InfluxDB]]
+- [[DB — ELK]]
+- [[DB — Prometheus & Grafana]]
+
 ### CLI
 
 - [[CLI]] — concept hub (author + operator tools)
@@ -514,6 +542,12 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Git branch and PR?             | [[Commands/CLI — Git & GitHub]]                                  |
 | Local API + Postgres?          | [[Commands/CLI — Docker & Compose]]                              |
 | API smoke in CI?               | [[Commands/CLI — Newman & Postman]]                              |
+| Cache or session store?        | [[DB — Redis]]                                                   |
+| Celery broker?                 | [[DB — RabbitMQ]] or [[DB — Redis]]                              |
+| Event stream between services? | [[DB — Kafka]]                                                   |
+| Flexible JSON documents?       | [[DB — MongoDB]]                                                 |
+| Production logs search?        | [[DB — ELK]]                                                     |
+| Latency/error dashboards?      | [[DB — Prometheus & Grafana]]                                    |
 | Env-based config?              | [[Python — Pydantic]] settings or [[Python — python-dotenv]]     |
 | CPU-bound parallelism?         | [[Python — multiprocessing]] (not asyncio)                       |
 | Custom decorator?              | `@wraps` from [[Python — functools]]                             |
@@ -570,6 +604,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Web]] — Flask, Django, Tornado
 - [[K8S]] — Kubernetes (Codes + Commands)
 - [[CLI]] — git, Docker, Newman + Python Typer
+- [[DB]] — Redis, Kafka, RabbitMQ, Mongo, Neo4j, ELK, Influx, Prometheus/Grafana
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---
