@@ -15,7 +15,7 @@ pip install celery redis
 # RabbitMQ broker: pip install celery[librabbitmq]  # or use amqp:// URL
 ```
 
-For flaky **in-process** HTTP calls inside a task, wrap with [[Python — tenacity]]; Celery's own `autoretry_for` covers task-level retries. Overview: [[Processing]].
+For flaky **in-process** HTTP calls inside a task, wrap with [[Python — tenacity]]; Celery's own `autoretry_for` covers task-level retries. Brokers: [[DB — Redis]], [[DB — RabbitMQ]]. Overview: [[Processing]], [[DB]].
 
 ---
 

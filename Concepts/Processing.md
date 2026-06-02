@@ -120,6 +120,8 @@ See [[Processing — Ray]], [[Machine Learning]].
 - [[Python — tenacity]]
 - [[Machine Learning]]
 - [[Browser Automation — Scrapy]]
+- [[DB — Redis]]
+- [[DB — RabbitMQ]]
 - [[Python Development]]
 
 ---

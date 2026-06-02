@@ -12,6 +12,7 @@
 - **Web (HTML / monolith):** See [[Web]] — [[Web — Flask]], [[Web — Django]], [[Web — Tornado]]
 - **Data Models:** Template queries with `jinja2`, use file operations with `pathlib`, create data models with `pydantic` and `dataclasses`, create ORMs with `sqlalchemy` [[Python — Jinja2 Package]] [[Python — pathlib]] [[Python — Pydantic]] [[ORM - SQLAlchemy]]
 - **CLI:** Create CLIs with `click`, `rich`, `argparse` and `typer` [[CLI]] [[Python — Click & Rich]] [[Python — Typer]] [[Python — argparse]]. Operator tools: `git`, `gh`, `docker`, `newman` [[Commands/CLI — Git & GitHub]] [[Commands/CLI — Docker & Compose]] [[Commands/CLI — Newman & Postman]]
+- **Data platform:** See [[DB]] — [[DB — Redis]], [[DB — Kafka]], [[DB — RabbitMQ]], [[DB — MongoDB]], [[DB — Neo4j]], [[DB — ELK]], [[DB — InfluxDB]], [[DB — Prometheus & Grafana]]. Relational: [[ORM - SQLAlchemy]]
 - **AI:** See [[AI]] — [[AI — LangChain]], [[AI — LangGraph]], [[AI — CrewAI]], [[AI — Agno]], [[AI — MCP]], [[AI — ACP]], [[AI — Docling]]. ML/MLOps: [[Machine Learning]] [[ML — MLflow]] [[ML — Feast]]. Jobs: [[Processing]] [[Processing — Celery]] [[Processing — Ray]]
 - **Anti-bot Protection Bypassing:** For anti-bot protection issues, use `camoufox`, `botright`, `botasaurus`. For residential proxy use `brightdata` [TODO: Concept and Codes]
 
