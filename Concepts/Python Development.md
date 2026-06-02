@@ -317,6 +317,18 @@ See [[Machine Learning]] for the full stack map, lifecycle, and all Codes notes.
 | Feature store | [[ML — Feast]] |
 | Model serving | [[ML — BentoML]], [[ML — Seldon]] |
 
+### Phase 7c — Natural language processing
+
+See [[NLP]] for the text processing stack and when to use classical NLP vs [[AI]] LLMs.
+
+| Area | References |
+| --- | --- |
+| Overview & pipeline | [[NLP]] |
+| Production NLP | [[NLP — spaCy]] |
+| Corpora & linguistics | [[NLP — NLTK]] |
+| Topics & embeddings | [[NLP — Gensim]] |
+| Quick sentiment | [[NLP — TextBlob]] |
+
 ### Phase 8 — Anti-bot and proxies (planned)
 
 For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced: camoufox, botright, botasaurus, brightdata — *TODO: Codes notes*.
@@ -407,6 +419,14 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]]
 - [[ML — MLflow]], [[ML — Feast]], [[ML — BentoML]], [[ML — Seldon]]
 
+### Natural language processing
+
+- [[NLP]] — concept hub
+- [[NLP — spaCy]]
+- [[NLP — NLTK]]
+- [[NLP — Gensim]]
+- [[NLP — TextBlob]]
+
 ---
 
 ## Choosing the Right Tool (Quick Decisions)
@@ -442,6 +462,9 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Serve sklearn/PyTorch model?   | [[ML — BentoML]] or [[ML — Seldon]]                              |
 | Tune hyperparameters?          | [[ML — Optuna]]                                                  |
 | Explain predictions?           | [[ML — SHAP]]                                                    |
+| Production text NLP?           | [[NLP — spaCy]]                                                  |
+| Topic modeling / doc vectors?  | [[NLP — Gensim]]                                                 |
+| Quick sentiment prototype?     | [[NLP — TextBlob]]                                               |
 
 ---
 
@@ -464,6 +487,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Browser Automation]] — Playwright, Scrapy, crawl4ai, ScrapeGraphAI, Scrapling
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
 - [[Machine Learning]] — sklearn, boosting, MLflow, model serving
+- [[NLP]] — spaCy, NLTK, Gensim, TextBlob
 - [[Processing]] — Celery, Ray (in progress)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
