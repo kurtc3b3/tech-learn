@@ -191,6 +191,8 @@ Keep YAML in Codes; keep copy-paste shell in Commands.
 - [[Python — python-dotenv]]
 - [[Processing — Celery]]
 - [[Python Development]]
+- [[CLI]]
+- [[Commands/CLI — Docker & Compose]]
 
 ---
 
