@@ -110,6 +110,7 @@ Because FastAPI outputs a standard **OpenAPI 3.x** spec, the ecosystem of toolin
 - [[API - FastAPI — WebSockets]]
 - [[API - FastAPI — Server-Sent Events (SSE)]]
 - [[API - FastAPI — OpenAPI Specification]]
+- [[Web]] — Flask, Django, Tornado (when not choosing FastAPI)
 -  [[Python — asyncio]]
 - [[fastapi tutorials]]
 
