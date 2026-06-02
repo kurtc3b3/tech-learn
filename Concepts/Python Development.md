@@ -354,6 +354,21 @@ See [[Processing]] for when to use Celery vs Ray vs in-process async.
 
 For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced: camoufox, botright, botasaurus, brightdata — *TODO: Codes notes*.
 
+### Phase 9 — Kubernetes & deployment
+
+See [[K8S]] for the object model; **Codes** notes hold YAML patterns, **Commands** hold kubectl/Minikube CLI.
+
+| Area | References |
+| --- | --- |
+| Overview & workload flow | [[K8S]] |
+| Cluster, namespaces, labels | [[Codes/K8S — Cluster & Namespaces]] |
+| Deployments, Pods, Jobs | [[Codes/K8S — Workloads]] |
+| Service, Ingress | [[Codes/K8S — Networking]] |
+| PVC, StorageClass | [[Codes/K8S — Storage]] |
+| ConfigMap, Secret, ServiceAccount | [[Codes/K8S — Configuration & Security]] |
+| kubectl & Minikube | [[Commands/K8S — kubectl & Minikube]] |
+| ML on cluster | [[ML — Seldon]], [[ML — BentoML]] |
+
 ---
 
 ## Library Index (All Python Codes Notes)
@@ -461,6 +476,16 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Processing — Celery]]
 - [[Processing — Ray]]
 
+### Kubernetes
+
+- [[K8S]] — concept hub
+- [[Codes/K8S — Cluster & Namespaces]]
+- [[Codes/K8S — Workloads]]
+- [[Codes/K8S — Networking]]
+- [[Codes/K8S — Storage]]
+- [[Codes/K8S — Configuration & Security]]
+- [[Commands/K8S — kubectl & Minikube]]
+
 ---
 
 ## Choosing the Right Tool (Quick Decisions)
@@ -503,6 +528,8 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Quick sentiment prototype?     | [[NLP — TextBlob]]                                               |
 | Background job queue?          | [[Processing — Celery]]                                          |
 | Parallel / distributed Python? | [[Processing — Ray]]                                             |
+| Deploy containers to cluster?  | [[K8S]] + [[Commands/K8S — kubectl & Minikube]]                  |
+| K8s YAML for Deployments?      | [[Codes/K8S — Workloads]]                                          |
 
 ---
 
@@ -528,6 +555,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[NLP]] — spaCy, NLTK, Gensim, TextBlob
 - [[Processing]] — Celery, Ray
 - [[Web]] — Flask, Django, Tornado
+- [[K8S]] — Kubernetes (Codes + Commands)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---
