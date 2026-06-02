@@ -23,4 +23,4 @@
 - [[Python — Click & Rich]]
 - [[Python — uv]]
 - [[Python — Poetry]]
-- markdownify
+- [[Python — markdownify]]
