@@ -1,0 +1,5 @@
+- playwright
+- crawl4ai
+- scrapy
+- scrapehraphai
+- scrapling
