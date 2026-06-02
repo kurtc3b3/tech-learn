@@ -14,7 +14,7 @@ pip install seldon-core
 # Cluster: helm install seldon-core seldon-core/seldon-core-operator
 ```
 
-Gateway APIs often sit behind [[API - FastAPI]] or Ingress. Track training in [[ML — MLflow]]. Overview: [[Machine Learning]].
+Gateway APIs often sit behind [[API - FastAPI]] or Ingress. Track training in [[ML — MLflow]]. K8s basics: [[K8S]], [[Codes/K8S — Workloads]], [[Commands/K8S — kubectl & Minikube]]. Overview: [[Machine Learning]].
 
 ---
 
@@ -272,6 +272,10 @@ Align container **port** and **health endpoints** with Seldon's expected service
 - [[ML — Feast]]
 - [[ML — SHAP]]
 - [[API - FastAPI]]
+- [[K8S]]
+- [[Codes/K8S — Workloads]]
+- [[Codes/K8S — Networking]]
+- [[Commands/K8S — kubectl & Minikube]]
 
 ---
 

@@ -97,7 +97,7 @@ flowchart LR
 5. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
 6. **Scale features** — [[ML — Feast]] when teams share feature definitions
 
-Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]].
+Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]]. Cluster deployment: [[K8S]] — [[Codes/K8S — Workloads]], [[Commands/K8S — kubectl & Minikube]].
 
 ---
 
@@ -140,6 +140,7 @@ Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Proce
 - [[NLP]]
 - [[Processing]]
 - [[API - FastAPI]]
+- [[K8S]]
 - [[Python Development]]
 
 ---
