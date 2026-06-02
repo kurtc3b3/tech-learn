@@ -605,6 +605,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[K8S]] — Kubernetes (Codes + Commands)
 - [[CLI]] — git, Docker, Newman + Python Typer
 - [[DB]] — Redis, Kafka, RabbitMQ, Mongo, Neo4j, ELK, Influx, Prometheus/Grafana
+- [[GCP]] — Google Cloud (conceptual map)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---
