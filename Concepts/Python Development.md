@@ -257,7 +257,7 @@ flowchart LR
 | Parse | DOM traversal, CSS selectors | [[Python — BeautifulSoup4 (bs4)]] |
 | Normalize | HTML → Markdown for RAG/docs | [[Python — markdownify]] |
 | Orchestrate | Concurrent page fetches | [[Python — asyncio]] |
-| Browser / anti-bot | JS rendering, stealth | [[Browser Automation]] — *playwright, scrapy, crawl4ai TODO* |
+| Browser / crawl | JS sites, scale, LLM extract | [[Browser Automation]], [[Browser Automation — Playwright]], [[Browser Automation — Scrapy]], [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]], [[Browser Automation — Scrapling]] |
 
 ### Phase 5 — API development
 
@@ -303,7 +303,7 @@ See [[AI]] for the full stack map, learning path, and all Codes notes.
 
 ### Phase 8 — Anti-bot and proxies (planned)
 
-For sites that block simple httpx scrapers — [[Browser Automation]], brightdata; tools: camoufox, botright, botasaurus — *TODO: Codes notes*.
+For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced: camoufox, botright, botasaurus, brightdata — *TODO: Codes notes*.
 
 ---
 
@@ -354,7 +354,16 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Python — urllib3 Package]]
 - [[Python — websockets Package]]
 
-### Scraping & content
+### Scraping & browser automation
+
+- [[Browser Automation]] — concept hub
+- [[Browser Automation — Playwright]]
+- [[Browser Automation — Scrapy]]
+- [[Browser Automation — crawl4ai]]
+- [[Browser Automation — ScrapeGraphAI]]
+- [[Browser Automation — Scrapling]]
+
+### Scraping & content (HTTP layer)
 
 - [[Python — BeautifulSoup4 (bs4)]]
 - [[Python — markdownify]]
@@ -396,6 +405,11 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Lint + format Python?          | [[Linting — Ruff]]                                               |
 | Type-check codebase?           | [[Linting — mypy]] + [[Python — typing]]                        |
 | Automate checks on commit?     | [[Linting — pre-commit]]                                         |
+| JS-heavy page or login flow?   | [[Browser Automation — Playwright]]                              |
+| Crawl thousands of URLs?       | [[Browser Automation — Scrapy]]                                  |
+| RAG ingest from web?           | [[Browser Automation — crawl4ai]]                                |
+| Extract by LLM prompt/schema?  | [[Browser Automation — ScrapeGraphAI]]                           |
+| Adaptive / stealth scraping?   | [[Browser Automation — Scrapling]]                               |
 
 ---
 
@@ -405,8 +419,6 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 
 | Topic                                       | Planned focus                                  |
 | ------------------------------------------- | ---------------------------------------------- |
-| playwright, scrapy, crawl4ai, scrapegraphai | Browser and framework scraping                 |
-| bentoml, seldon                             | Model serving                                  |
 | camoufox, botright, botasaurus, brightdata  | Anti-bot and proxies                           |
 
 ---
@@ -417,7 +429,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[ORM - SQLAlchemy]] — persistence
 - [[Unit Testing - pytest]] — quality
 - [[Linting]] — Ruff, mypy, pre-commit
-- [[Browser Automation]] — scraping beyond httpx
+- [[Browser Automation]] — Playwright, Scrapy, crawl4ai, ScrapeGraphAI, Scrapling
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
 - [[Processing]] — Celery, Ray (in progress)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
