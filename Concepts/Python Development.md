@@ -72,7 +72,7 @@ flowchart TB
 
 | Phase                  | Purpose                                    | Primary references                                                                                                                                           |
 | ---------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1 — Foundation         | Reproducible repo and quality bar          | [[Python — Copier]], [[Python — uv]], [[Python — Poetry]], [[Linting]], [[Unit Testing - pytest]]                                                            |
+| 1 — Foundation         | Reproducible repo and quality bar          | [[Python — Copier]], [[Python — uv]], [[Python — Poetry]], [[Linting]], [[Linting — Ruff]], [[Linting — pre-commit]], [[Unit Testing - pytest]]                                                            |
 | 2 — Cross-cutting      | Config and observability everywhere        | [[Python — Pydantic]], [[Python — python-dotenv]], [[Python — logging]], [[Python — tqdm]], [[Python — typing]], [[Python — enum]], [[Python — dataclasses]] |
 | 3 — Domain & data      | Files, templates, validation, persistence  | [[Python — pathlib]], [[Python — Jinja2 Package]], [[ORM - SQLAlchemy]], [[Python — SQLModel]]                                                               |
 | 4 — Delivery           | Expose behavior to users and other systems | [[API - FastAPI]], [[Python — httpx Package]], scraping stack below, [[Python — Typer]], [[Python — Click & Rich]], [[Python — argparse]]                    |
@@ -209,7 +209,7 @@ fetch → parse → normalize → persist
 | --- | --- | --- |
 | Bootstrap | Start from a Copier template (layout, CI hooks) | [[Python — Copier]] |
 | Dependencies | Lock deps with uv or Poetry | [[Python — uv]], [[Python — Poetry]] |
-| Code quality | Ruff + pre-commit on every commit | [[Linting]] |
+| Code quality | Ruff + pre-commit on every commit | [[Linting — Ruff]], [[Linting — pre-commit]], [[Linting — mypy]] |
 | Tests | pytest from the first module | [[Unit Testing - pytest]], [[Unit Test - Basic]], [[Unit Test - Fixtures]] |
 
 ### Phase 2 — Cross-cutting concerns
@@ -316,7 +316,10 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Python — Copier]] — project templates
 - [[Python — uv]] — fast package manager
 - [[Python — Poetry]] — alternative dependency manager
-- [[Linting]] — ruff, pre-commit, mypy (concept)
+- [[Linting]] — code quality hub
+- [[Linting — Ruff]] — linter and formatter
+- [[Linting — mypy]] — static type checking
+- [[Linting — pre-commit]] — git hooks
 - [[Unit Testing - pytest]] — testing strategy (concept)
 
 ### Language & stdlib-style
@@ -390,6 +393,9 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Count or group in memory?      | `Counter`, `defaultdict` — [[Python — collections]]            |
 | Startup/shutdown resources?    | `@asynccontextmanager` — [[Python — contextlib]]               |
 | Plugin or backend contract?    | `ABC` + `@abstractmethod` — [[Python — abc]]                   |
+| Lint + format Python?          | [[Linting — Ruff]]                                               |
+| Type-check codebase?           | [[Linting — mypy]] + [[Python — typing]]                        |
+| Automate checks on commit?     | [[Linting — pre-commit]]                                         |
 
 ---
 
@@ -410,7 +416,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[API - FastAPI]] — HTTP APIs
 - [[ORM - SQLAlchemy]] — persistence
 - [[Unit Testing - pytest]] — quality
-- [[Linting]] — static checks
+- [[Linting]] — Ruff, mypy, pre-commit
 - [[Browser Automation]] — scraping beyond httpx
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
 - [[Processing]] — Celery, Ray (in progress)
