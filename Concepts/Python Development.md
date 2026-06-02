@@ -298,7 +298,7 @@ See [[AI]] for the full stack map, learning path, and all Codes notes.
 | Multi-agent / typed agents | [[AI — CrewAI]], [[AI — Agno]], [[AI — Pydantic AI]], [[AI — DSPy]] |
 | Protocols | [[AI — MCP]], [[AI — A2A]], [[AI — ACP]] |
 | Evaluation & memory | [[AI — RAGAS]], [[AI — Mem0]] |
-| Distributed tasks (planned) | [[Processing]] — Celery, Ray |
+| Distributed tasks | [[Processing]], [[Processing — Celery]], [[Processing — Ray]] |
 
 ### Phase 7b — Machine learning & MLOps
 
@@ -328,6 +328,16 @@ See [[NLP]] for the text processing stack and when to use classical NLP vs [[AI]
 | Corpora & linguistics | [[NLP — NLTK]] |
 | Topics & embeddings | [[NLP — Gensim]] |
 | Quick sentiment | [[NLP — TextBlob]] |
+
+### Phase 7d — Distributed processing
+
+See [[Processing]] for when to use Celery vs Ray vs in-process async.
+
+| Area | References |
+| --- | --- |
+| Overview & decision flow | [[Processing]] |
+| Task queue & cron | [[Processing — Celery]] |
+| Parallel / distributed compute | [[Processing — Ray]] |
 
 ### Phase 8 — Anti-bot and proxies (planned)
 
@@ -427,6 +437,12 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[NLP — Gensim]]
 - [[NLP — TextBlob]]
 
+### Distributed processing
+
+- [[Processing]] — concept hub
+- [[Processing — Celery]]
+- [[Processing — Ray]]
+
 ---
 
 ## Choosing the Right Tool (Quick Decisions)
@@ -465,6 +481,8 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Production text NLP?           | [[NLP — spaCy]]                                                  |
 | Topic modeling / doc vectors?  | [[NLP — Gensim]]                                                 |
 | Quick sentiment prototype?     | [[NLP — TextBlob]]                                               |
+| Background job queue?          | [[Processing — Celery]]                                          |
+| Parallel / distributed Python? | [[Processing — Ray]]                                             |
 
 ---
 
@@ -488,7 +506,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
 - [[Machine Learning]] — sklearn, boosting, MLflow, model serving
 - [[NLP]] — spaCy, NLTK, Gensim, TextBlob
-- [[Processing]] — Celery, Ray (in progress)
+- [[Processing]] — Celery, Ray
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---

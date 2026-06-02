@@ -97,7 +97,7 @@ flowchart LR
 5. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
 6. **Scale features** — [[ML — Feast]] when teams share feature definitions
 
-Distributed training/jobs: [[Processing]] — Celery, Ray (separate series).
+Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]].
 
 ---
 
