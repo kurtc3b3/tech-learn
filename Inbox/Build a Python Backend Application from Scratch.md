@@ -2,7 +2,7 @@
 
 - **Templating:** Create a reusable python template project using `copier` [[Python — Copier]]
 - **Dependency Manager:** Start with `uv` `poetry` [[Python — uv]] [[Python — Poetry]]
-- **Code Quality:** Setup linting with `pre-commit` and `ruff` [[Linting]]
+- **Code Quality:** Setup linting with `pre-commit` and `ruff` [[Linting]] [[Linting — Ruff]] [[Linting — pre-commit]] [[Linting — mypy]]
 - **Testing:** Setup tests with `pytest` and `unittest` [[Unit Testing - pytest]]
 - **Logging:** Setup logging and progress with `logging` and `tqdm` [[Python — logging]] [[Python — tqdm]]
 - **Configuration:** Setup settings using `pydantic-settings` or `python-dotenv` [[Python — Pydantic]] [[Python — python-dotenv]]
