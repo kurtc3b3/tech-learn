@@ -290,11 +290,17 @@ See [[Web]] when the delivery surface is **HTML**, **Django admin**, or you main
 
 ### Phase 6 — CLI and operator tools
 
+See [[CLI]] for the full map — **Python authoring** (Typer, Click) vs **operator commands** (git, Docker, Newman).
+
 | Use case | Prefer | References |
 | --- | --- | --- |
+| Overview & daily flow | [[CLI]] | Hub |
 | New project, typed flags | Typer | [[Python — Typer]] |
 | Rich tables/progress | Click + Rich | [[Python — Click & Rich]] |
 | Stdlib only | argparse | [[Python — argparse]] |
+| Git, branches, PRs | git + gh | [[Commands/CLI — Git & GitHub]] |
+| Local stack in containers | Docker Compose | [[Commands/CLI — Docker & Compose]] |
+| API collection CI smoke | Newman | [[Commands/CLI — Newman & Postman]] |
 
 ### Phase 7 — AI applications
 
@@ -448,9 +454,13 @@ Grouped for lookup; each link is the **how-to** for that library.
 
 ### CLI
 
+- [[CLI]] — concept hub (author + operator tools)
 - [[Python — Typer]]
 - [[Python — Click & Rich]]
 - [[Python — argparse]]
+- [[Commands/CLI — Git & GitHub]]
+- [[Commands/CLI — Docker & Compose]]
+- [[Commands/CLI — Newman & Postman]]
 
 ### Machine learning
 
@@ -501,6 +511,9 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Feed an LLM from a page?       | bs4 clean → [[Python — markdownify]]                             |
 | Flaky external API?            | [[Python — tenacity]] on service/client layer                    |
 | User-facing CLI?               | [[Python — Typer]]                                               |
+| Git branch and PR?             | [[Commands/CLI — Git & GitHub]]                                  |
+| Local API + Postgres?          | [[Commands/CLI — Docker & Compose]]                              |
+| API smoke in CI?               | [[Commands/CLI — Newman & Postman]]                              |
 | Env-based config?              | [[Python — Pydantic]] settings or [[Python — python-dotenv]]     |
 | CPU-bound parallelism?         | [[Python — multiprocessing]] (not asyncio)                       |
 | Custom decorator?              | `@wraps` from [[Python — functools]]                             |
@@ -556,6 +569,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Processing]] — Celery, Ray
 - [[Web]] — Flask, Django, Tornado
 - [[K8S]] — Kubernetes (Codes + Commands)
+- [[CLI]] — git, Docker, Newman + Python Typer
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---
