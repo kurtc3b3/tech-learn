@@ -172,6 +172,10 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 - [[AI — RAGAS]]
 - [[AI — Mem0]]
 
+### Classical NLP (hybrid pipelines)
+
+- [[NLP]] — spaCy, NLTK, Gensim for preprocessing and metadata before RAG
+
 ### Connected vault notes
 
 - [[Python — Pydantic]]
