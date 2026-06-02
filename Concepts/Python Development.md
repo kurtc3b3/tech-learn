@@ -277,6 +277,17 @@ flowchart LR
 
 Serve with **Uvicorn** (ASGI); call outbound services with a shared **httpx** client (see [[Python — httpx Package]]).
 
+### Phase 5b — Traditional web frameworks (Flask, Django, Tornado)
+
+See [[Web]] when the delivery surface is **HTML**, **Django admin**, or you maintain legacy Tornado services — not a replacement for [[API - FastAPI]] on new JSON APIs.
+
+| Area | References |
+| --- | --- |
+| Overview & decision flow | [[Web]] |
+| Microframework + Jinja2 | [[Web — Flask]] |
+| Batteries-included monolith | [[Web — Django]] |
+| Legacy async HTTP / WebSocket | [[Web — Tornado]] |
+
 ### Phase 6 — CLI and operator tools
 
 | Use case | Prefer | References |
@@ -392,6 +403,13 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Python — urllib3 Package]]
 - [[Python — websockets Package]]
 
+### Web frameworks (HTML & monoliths)
+
+- [[Web]] — concept hub
+- [[Web — Flask]]
+- [[Web — Django]]
+- [[Web — Tornado]]
+
 ### Scraping & browser automation
 
 - [[Browser Automation]] — concept hub
@@ -450,6 +468,8 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Question                       | Choose                                                           |
 | ------------------------------ | ---------------------------------------------------------------- |
 | New API service?               | [[API - FastAPI]] + [[Python — Pydantic]] + [[ORM - SQLAlchemy]] |
+| Server-rendered HTML / tool?   | [[Web — Flask]] + [[Python — Jinja2 Package]]                    |
+| Monolith with admin + ORM?     | [[Web — Django]]                                                 |
 | Script or cron job, sync only? | [[Python — requests Package]] + [[Python — logging]]             |
 | Many parallel HTTP calls?      | [[Python — asyncio]] + [[Python — httpx Package]]                |
 | Parse HTML?                    | [[Python — BeautifulSoup4 (bs4)]]                                |
@@ -507,6 +527,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Machine Learning]] — sklearn, boosting, MLflow, model serving
 - [[NLP]] — spaCy, NLTK, Gensim, TextBlob
 - [[Processing]] — Celery, Ray
+- [[Web]] — Flask, Django, Tornado
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---
