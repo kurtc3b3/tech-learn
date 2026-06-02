@@ -11,7 +11,7 @@
 - **API:** Setup api project with `fastapi`, serve with `uvicorn`. Serve models with `bentoml` and `seldon` [[API - FastAPI]] [[ML — BentoML]] [[ML — Seldon]]
 - **Data Models:** Template queries with `jinja2`, use file operations with `pathlib`, create data models with `pydantic` and `dataclasses`, create ORMs with `sqlalchemy` [[Python — Jinja2 Package]] [[Python — pathlib]] [[Python — Pydantic]] [[ORM - SQLAlchemy]]
 - **CLI:** Create CLIs with `click`, `rich`, `argparse` and `typer` [[Python — Click & Rich]] [[Python — Typer]] [[Python — argparse]]
-- **AI:** See [[AI]] — [[AI — LangChain]], [[AI — LangGraph]], [[AI — CrewAI]], [[AI — Agno]], [[AI — MCP]], [[AI — ACP]], [[AI — Docling]]. ML/MLOps: [[Machine Learning]] [[ML — MLflow]] [[ML — Feast]]. Jobs: `celery`, `ray` [[Processing]] [TODO: Codes]
+- **AI:** See [[AI]] — [[AI — LangChain]], [[AI — LangGraph]], [[AI — CrewAI]], [[AI — Agno]], [[AI — MCP]], [[AI — ACP]], [[AI — Docling]]. ML/MLOps: [[Machine Learning]] [[ML — MLflow]] [[ML — Feast]]. Jobs: [[Processing]] [[Processing — Celery]] [[Processing — Ray]]
 - **Anti-bot Protection Bypassing:** For anti-bot protection issues, use `camoufox`, `botright`, `botasaurus`. For residential proxy use `brightdata` [TODO: Concept and Codes]
 
 - [[Python — functools]], [[Python — itertools]], [[Python — collections]], [[Python — contextlib]]
