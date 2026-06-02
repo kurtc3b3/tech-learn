@@ -298,8 +298,24 @@ See [[AI]] for the full stack map, learning path, and all Codes notes.
 | Multi-agent / typed agents | [[AI — CrewAI]], [[AI — Agno]], [[AI — Pydantic AI]], [[AI — DSPy]] |
 | Protocols | [[AI — MCP]], [[AI — A2A]], [[AI — ACP]] |
 | Evaluation & memory | [[AI — RAGAS]], [[AI — Mem0]] |
-| MLOps / tasks (planned) | feast, mlflow, [[Processing]] — Celery, Ray |
-| Model serving (planned) | bentoml, seldon |
+| Distributed tasks (planned) | [[Processing]] — Celery, Ray |
+
+### Phase 7b — Machine learning & MLOps
+
+See [[Machine Learning]] for the full stack map, lifecycle, and all Codes notes.
+
+| Area | References |
+| --- | --- |
+| Overview & lifecycle | [[Machine Learning]] |
+| Foundation | [[ML — NumPy]], [[ML — pandas]], [[ML — scipy]] |
+| Visualization | [[ML — matplotlib]], [[ML — seaborn]] |
+| Classical ML | [[ML — scikit-learn]], [[ML — XGBoost]], [[ML — LightGBM]], [[ML — H2O]] |
+| Deep learning / forecasting | [[ML — PyTorch]], [[ML — Prophet]] |
+| Selection & tuning | [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]] |
+| Graph features | [[ML — NetworkX]] |
+| Experiment tracking | [[ML — MLflow]] |
+| Feature store | [[ML — Feast]] |
+| Model serving | [[ML — BentoML]], [[ML — Seldon]] |
 
 ### Phase 8 — Anti-bot and proxies (planned)
 
@@ -381,6 +397,16 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Python — Click & Rich]]
 - [[Python — argparse]]
 
+### Machine learning
+
+- [[Machine Learning]] — concept hub
+- [[ML — NumPy]], [[ML — pandas]], [[ML — scipy]]
+- [[ML — matplotlib]], [[ML — seaborn]]
+- [[ML — scikit-learn]], [[ML — XGBoost]], [[ML — LightGBM]], [[ML — H2O]]
+- [[ML — PyTorch]], [[ML — Prophet]], [[ML — NetworkX]]
+- [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]]
+- [[ML — MLflow]], [[ML — Feast]], [[ML — BentoML]], [[ML — Seldon]]
+
 ---
 
 ## Choosing the Right Tool (Quick Decisions)
@@ -410,6 +436,12 @@ Grouped for lookup; each link is the **how-to** for that library.
 | RAG ingest from web?           | [[Browser Automation — crawl4ai]]                                |
 | Extract by LLM prompt/schema?  | [[Browser Automation — ScrapeGraphAI]]                           |
 | Adaptive / stealth scraping?   | [[Browser Automation — Scrapling]]                               |
+| Tabular ML baseline?           | [[ML — scikit-learn]] + [[ML — pandas]]                          |
+| Boost tabular performance?     | [[ML — XGBoost]] or [[ML — LightGBM]]                            |
+| Track experiments?             | [[ML — MLflow]]                                                  |
+| Serve sklearn/PyTorch model?   | [[ML — BentoML]] or [[ML — Seldon]]                              |
+| Tune hyperparameters?          | [[ML — Optuna]]                                                  |
+| Explain predictions?           | [[ML — SHAP]]                                                    |
 
 ---
 
@@ -431,6 +463,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Linting]] — Ruff, mypy, pre-commit
 - [[Browser Automation]] — Playwright, Scrapy, crawl4ai, ScrapeGraphAI, Scrapling
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
+- [[Machine Learning]] — sklearn, boosting, MLflow, model serving
 - [[Processing]] — Celery, Ray (in progress)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
