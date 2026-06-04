@@ -2,6 +2,7 @@
 
 - **Tabular ML default stack** — [[ML — pandas]] + [[ML — NumPy]] + [[ML — scikit-learn]] for most classical problems; add [[ML — XGBoost]] or [[ML — LightGBM]] for performance.
 - **Track experiments** — [[ML — MLflow]] for params, metrics, artifacts, and model registry before production.
+- **Version data & pipelines** — [[DVC]] / [[ML — DVC]] for datasets, `dvc.yaml` stages, and remote storage alongside Git.
 - **Serve models** — [[ML — BentoML]] or [[ML — Seldon]] behind [[API - FastAPI]] / Kubernetes; not raw pickle endpoints.
 - **Explain & tune** — [[ML — SHAP]] for interpretability, [[ML — Optuna]] for hyperparameters, [[ML — Boruta]] for feature selection.
 - **Deep learning & forecasting** — [[ML — PyTorch]] for neural nets; [[ML — Prophet]] for time series baselines.
@@ -33,6 +34,7 @@ flowchart LR
     TRAIN --> EXPLAIN[SHAP]
     TRAIN --> TRACK[MLflow]
     FEAT --> STORE[Feast optional]
+    DATA -.-> DVCPIN[DVC version] -.-> TRAIN
     TRACK --> SERVE[BentoML / Seldon]
     SERVE --> API[FastAPI / K8s]
 ```
@@ -55,25 +57,27 @@ flowchart LR
 | **Graphs** | NetworkX | [[ML — NetworkX]] |
 | **Feature store** | Feast | [[ML — Feast]] |
 | **Experiment tracking** | MLflow | [[ML — MLflow]] |
+| **Data & pipeline versioning** | DVC | [[DVC]], [[ML — DVC]] |
 | **Model serving** | BentoML, Seldon | [[ML — BentoML]], [[ML — Seldon]] |
 
 ---
 
 ## When to Use What
 
-| Problem | Start with | Level up |
-| --- | --- | --- |
-| Tabular classify/regress | [[ML — scikit-learn]] | [[ML — XGBoost]], [[ML — LightGBM]] |
-| AutoML / distributed tables | [[ML — H2O]] | H2O AutoML |
-| Neural networks | [[ML — PyTorch]] | Custom architectures |
-| Business time series | [[ML — Prophet]] | sklearn / boosting with lags |
-| Too many features | [[ML — Boruta]] | + domain knowledge |
-| Best hyperparameters | [[ML — Optuna]] | Nested CV with sklearn |
-| Why did model predict X? | [[ML — SHAP]] | Per-feature dashboards |
-| Reproducible experiments | [[ML — MLflow]] | Registry + promote stages |
-| Online features | [[ML — Feast]] | Point-in-time joins |
-| REST model API | [[ML — BentoML]] | [[ML — Seldon]] on K8s |
-| EDA plots | [[ML — seaborn]] | [[ML — matplotlib]] for custom |
+| Problem                     | Start with            | Level up                            |
+| --------------------------- | --------------------- | ----------------------------------- |
+| Tabular classify/regress    | [[ML — scikit-learn]] | [[ML — XGBoost]], [[ML — LightGBM]] |
+| AutoML / distributed tables | [[ML — H2O]]          | H2O AutoML                          |
+| Neural networks             | [[ML — PyTorch]]      | Custom architectures                |
+| Business time series        | [[ML — Prophet]]      | sklearn / boosting with lags        |
+| Too many features           | [[ML — Boruta]]       | + domain knowledge                  |
+| Best hyperparameters        | [[ML — Optuna]]       | Nested CV with sklearn              |
+| Why did model predict X?    | [[ML — SHAP]]         | Per-feature dashboards              |
+| Reproducible experiments    | [[ML — MLflow]]       | Registry + promote stages           |
+| Version datasets & pipelines | [[DVC]]              | [[ML — DVC]] + Git + remote         |
+| Online features             | [[ML — Feast]]        | Point-in-time joins                 |
+| REST model API              | [[ML — BentoML]]      | [[ML — Seldon]] on K8s              |
+| EDA plots                   | [[ML — seaborn]]      | [[ML — matplotlib]] for custom      |
 
 ---
 
@@ -94,8 +98,9 @@ flowchart LR
 2. **First model** — [[ML — scikit-learn]] pipeline end-to-end
 3. **Boost performance** — [[ML — XGBoost]] or [[ML — LightGBM]]
 4. **Tune & explain** — [[ML — Optuna]], [[ML — SHAP]]
-5. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
-6. **Scale features** — [[ML — Feast]] when teams share feature definitions
+5. **Data versioning** — [[DVC]] → [[ML — DVC]] pipelines with remote storage
+6. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
+7. **Scale features** — [[ML — Feast]] when teams share feature definitions
 
 Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]]. Cluster deployment: [[K8S]] — [[Codes/K8S — Workloads]], [[Commands/K8S — kubectl & Minikube]].
 
@@ -129,6 +134,8 @@ Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Proce
 
 ### MLOps & serving
 
+- [[DVC]]
+- [[ML — DVC]]
 - [[ML — MLflow]]
 - [[ML — Feast]]
 - [[ML — BentoML]]

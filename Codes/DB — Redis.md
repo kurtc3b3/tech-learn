@@ -93,7 +93,7 @@ async def allow_request(cache, key: str, limit: int, window: int) -> bool:
     return count <= limit
 ```
 
-Production: sliding window or token bucket libraries; consider Redis Cell module.
+Production HTTP APIs: [[API - FastAPI — Rate Limiting (SlowAPI)]] with `storage_uri=redis://...`. Other patterns: sliding window or token bucket libraries; Redis Cell module.
 
 ---
 

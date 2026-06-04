@@ -256,17 +256,17 @@ Keep parsers **stateless** in workers; write Markdown to object storage and let 
 
 ## Quick Reference
 
-| Task | Code |
-| --- | --- |
-| Install | `pip install megaparse` |
-| Default parse | `MegaParse().load(path)` |
-| Save markdown | `mp.save("out.md")` |
-| Vision parse | `MegaParseVision(model=ChatOpenAI(...)).convert(path)` |
-| Custom parser | `MegaParse(parser=UnstructuredParser(...))` |
-| LlamaCloud | `LlamaParser(api_key=...)` |
-| Chunk for RAG | Split `\n\n` + tiktoken token budget |
-| Compare | [[AI — Docling]] for structured local conversion |
-| Index | [[AI — LangChain]], [[AI — Haystack]], [[AI — Chroma]] |
+| Task          | Code                                                   |
+| ------------- | ------------------------------------------------------ |
+| Install       | `pip install megaparse`                                |
+| Default parse | `MegaParse().load(path)`                               |
+| Save markdown | `mp.save("out.md")`                                    |
+| Vision parse  | `MegaParseVision(model=ChatOpenAI(...)).convert(path)` |
+| Custom parser | `MegaParse(parser=UnstructuredParser(...))`            |
+| LlamaCloud    | `LlamaParser(api_key=...)`                             |
+| Chunk for RAG | Split `\n\n` + tiktoken token budget                   |
+| Compare       | [[AI — Docling]] for structured local conversion       |
+| Index         | [[AI — LangChain]], [[AI — Haystack]], [[AI — Chroma]] |
 
 ---
 

@@ -46,15 +46,15 @@ flowchart TD
 
 ## Celery vs Ray
 
-| | [[Processing — Celery]] | [[Processing — Ray]] |
-| --- | --- | --- |
-| Model | Message queue → workers | Distributed object store + scheduler |
-| Best for | Job queues, cron, ETL stages | Parallel map, actors, Tune, Serve |
-| Broker | Redis, RabbitMQ required | Ray cluster (local or K8s) |
-| Result storage | Result backend (Redis/DB) | Object refs, Ray datasets |
-| Scheduling | Celery Beat | Ray cron / external scheduler |
-| ML focus | Batch scoring jobs, pipelines | Ray Tune, Train, Serve |
-| FastAPI | `.delay()` / `.apply_async()` | Remote functions, Ray Serve |
+|                | [[Processing — Celery]]       | [[Processing — Ray]]                 |
+| -------------- | ----------------------------- | ------------------------------------ |
+| Model          | Message queue → workers       | Distributed object store + scheduler |
+| Best for       | Job queues, cron, ETL stages  | Parallel map, actors, Tune, Serve    |
+| Broker         | Redis, RabbitMQ required      | Ray cluster (local or K8s)           |
+| Result storage | Result backend (Redis/DB)     | Object refs, Ray datasets            |
+| Scheduling     | Celery Beat                   | Ray cron / external scheduler        |
+| ML focus       | Batch scoring jobs, pipelines | Ray Tune, Train, Serve               |
+| FastAPI        | `.delay()` / `.apply_async()` | Remote functions, Ray Serve          |
 
 They can coexist: Celery triggers nightly ETL; Ray runs heavy training inside a worker or separate cluster.
 

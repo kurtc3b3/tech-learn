@@ -4,6 +4,8 @@
 - **git + gh** — version control locally; GitHub CLI for PRs, issues, Actions from the terminal.
 - **Docker + Compose** — package and run apps locally before [[K8S]]; same images often deploy to cluster.
 - **Postman + Newman** — design API collections in GUI; run them headless in CI with Newman against [[API - FastAPI]] services.
+- **Load testing CLIs** — oha, hey, JMeter in **Commands/Load Testing —**; k6 and Locust scripts in **Codes/** — hub [[Load Testing]].
+- **Linux operator stack** — files, systemd, networking in **Commands/Linux —**; architecture and Bash patterns in [[Linux]].
 - **Commands folder** — copy-paste shell for operator tools; Python CLI patterns stay under **Codes/Python —**.
 
 # CLI — Overview & Developer Command-Line Stack
@@ -44,11 +46,11 @@ flowchart LR
     N --> API[[API - FastAPI]]
 ```
 
-| Layer | Folder | Examples |
-| --- | --- | --- |
-| **Author CLIs** | `Codes/Python —` | Typer subcommands, Click options |
+| Layer              | Folder           | Examples                                     |
+| ------------------ | ---------------- | -------------------------------------------- |
+| **Author CLIs**    | `Codes/Python —` | Typer subcommands, Click options             |
 | **Operator tools** | `Commands/CLI —` | `git commit`, `docker compose`, `newman run` |
-| **Platform CLI** | `Commands/K8S —` | kubectl, minikube (see [[K8S]]) |
+| **Platform CLI**   | `Commands/K8S —` | kubectl, minikube (see [[K8S]])              |
 
 ---
 
@@ -59,6 +61,8 @@ flowchart LR
 | Git / GitHub / gh | [[Commands/CLI — Git & GitHub]] | [[Linting — pre-commit]], PR workflow |
 | Docker / docker-compose | [[Commands/CLI — Docker & Compose]] | [[K8S]], [[ML — BentoML]] images |
 | Postman / Newman | [[Commands/CLI — Newman & Postman]] | [[API - FastAPI]], [[Unit Testing - pytest]] |
+| Load testing (oha, hey, JMeter) | [[Commands/Load Testing — oha]], [[Commands/Load Testing — hey]], [[Commands/Load Testing — JMeter]] | [[Load Testing]] |
+| Linux (essentials → admin) | [[Commands/Linux — Essentials]] … [[Commands/Linux — Bash Scripting]] | [[Linux]] |
 | Build Python CLI | [[Python — Typer]] | [[Python Development]] Phase 6 |
 | Rich terminal UI | [[Python — Click & Rich]] | Progress, tables |
 | Stdlib CLI | [[Python — argparse]] | No dependencies |
@@ -89,6 +93,8 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 | Open PR from terminal? | `gh pr create` → [[Commands/CLI — Git & GitHub]] |
 | Run app + Postgres locally? | [[Commands/CLI — Docker & Compose]] |
 | Test REST collection in CI? | [[Commands/CLI — Newman & Postman]] |
+| Quick HTTP bench / load smoke? | [[Commands/Load Testing — oha]], [[Load Testing]] |
+| Scripted load with CI thresholds? | [[Load Testing — k6]] |
 | Orchestrate containers in prod? | [[K8S]] |
 
 ---
@@ -100,6 +106,8 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 | HTTP API | [[API - FastAPI]] |
 | API testing (code) | [[Unit Testing - pytest]] + httpx |
 | API testing (collection) | Newman |
+| Load / performance | [[Load Testing]] |
+| Server OS / shell | [[Linux]] |
 | Quality on commit | [[Linting — pre-commit]] |
 | Package manager | [[Python — uv]] |
 | Container images | Docker → [[Codes/K8S — Workloads]] |
@@ -114,7 +122,8 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 3. **Docker Compose** — one-file local stack — [[Commands/CLI — Docker & Compose]]
 4. **Typer** — first management CLI — [[Python — Typer]]
 5. **Newman** — export Postman collection, run in CI — [[Commands/CLI — Newman & Postman]]
-6. **Connect to deploy** — image → [[K8S]]
+6. **Load testing** — oha bench → k6 thresholds — [[Load Testing]]
+7. **Connect to deploy** — image → [[K8S]]
 
 ---
 
@@ -125,6 +134,26 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 - [[Commands/CLI — Git & GitHub]]
 - [[Commands/CLI — Docker & Compose]]
 - [[Commands/CLI — Newman & Postman]]
+
+### Commands (load testing)
+
+- [[Commands/Load Testing — oha]]
+- [[Commands/Load Testing — hey]]
+- [[Commands/Load Testing — JMeter]]
+
+### Commands (Linux)
+
+- [[Commands/Linux — Essentials]]
+- [[Commands/Linux — Files Advanced]]
+- [[Commands/Linux — Text & Sessions]]
+- [[Commands/Linux — Permissions & Users]]
+- [[Commands/Linux — Processes & Services]]
+- [[Commands/Linux — Networking]]
+- [[Commands/Linux — Packages & Archives]]
+- [[Commands/Linux — Disk & Storage]]
+- [[Commands/Linux — Bash Scripting]]
+- [[Commands/Linux — Kali in Docker]]
+- [[Commands/Linux — Kali Tools]]
 
 ### Python CLI authoring
 
@@ -139,9 +168,11 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 - [[Linting — pre-commit]]
 - [[Python Development]]
 - [[Unit Testing - pytest]]
+- [[Load Testing]]
+- [[Linux]]
 
 ---
 
 ## Tags
 
-#cli #git #github #docker #postman #newman #devops #terminal #python #typer
+#cli #git #github #docker #postman #newman #load-testing #linux #devops #terminal #python #typer

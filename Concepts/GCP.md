@@ -34,6 +34,7 @@
 | **Cloud Dataproc** | Managed Spark/Hadoop | Batch on clusters |
 | **Composer** | Managed Airflow | [[ORCHESTRATION — Airflow]] |
 | **Vertex AI** | Training, endpoints, pipelines | [[Machine Learning]] |
+| **ADK agents** | Build/deploy Gemini agents | [[AI — ADK]], [[AI]] |
 | **Cloud Logging & Monitoring** | Logs + metrics | Like [[DB — ELK]] / [[DB — Prometheus & Grafana]] |
 | **Secret Manager** | Central secrets | Prod env vars |
 | **IAM** | Who can do what | Service accounts per service |
@@ -117,6 +118,8 @@ Local dev stays on [[Commands/CLI — Docker & Compose]]; deploy same container 
 - [[Machine Learning]]
 - [[CLI]]
 - [[Python Development]]
+- [[Cybersecurity — Network Security]]
+- [[Cybersecurity — Frameworks & Compliance]]
 
 ---
 

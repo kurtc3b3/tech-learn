@@ -1,6 +1,6 @@
 ## What & When
 
-**A2A (Agent2Agent Protocol)** is Google's open standard for **remote agents** to discover each other, exchange tasks, and collaborate over **HTTP(S) with JSON-RPC 2.0**. A client agent delegates work to a server agent without knowing its internal framework (LangGraph, ADK, CrewAI, custom code).
+**A2A (Agent2Agent Protocol)** is Google's open standard for **remote agents** to discover each other, exchange tasks, and collaborate over **HTTP(S) with JSON-RPC 2.0**. A client agent delegates work to a server agent without knowing its internal framework (LangGraph, [[AI — ADK]], CrewAI, custom code).
 
 Use A2A when:
 
