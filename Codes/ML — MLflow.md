@@ -25,6 +25,7 @@ Expose inference via [[API - FastAPI]] or MLflow's built-in scoring server. Over
 | Experiment tracking + registry | **MLflow** | `mlflow.start_run`, Model Registry |
 | Hyperparameter search | [[ML — Optuna]] | Log `best_params` to MLflow |
 | Feature store | [[ML — Feast]] | Complementary; not a tracker |
+| Data & pipeline versions | [[ML — DVC]] | Git + remotes; pairs with MLflow metrics |
 | Packaging for K8s | [[ML — Seldon]] | Often loads MLflow model URI |
 | Python REST serving | [[ML — BentoML]] | Can import MLflow models |
 | Explainability artifacts | [[ML — SHAP]] | `log_artifact` / `log_figure` |
@@ -249,6 +250,8 @@ with mlflow.start_run(run_name="optuna-parent"):
 - [[ML — BentoML]]
 - [[ML — Seldon]]
 - [[ML — Feast]]
+- [[DVC]]
+- [[ML — DVC]]
 - [[API - FastAPI]]
 
 ---

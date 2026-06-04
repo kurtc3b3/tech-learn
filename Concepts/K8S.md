@@ -5,6 +5,7 @@
 - **Deployment + Service = default app pattern** — Deployment runs stateless replicas; Service gives stable cluster DNS; Ingress exposes HTTP(S) externally.
 - **ConfigMap / Secret inject config** — never bake env-specific values into images; pair with [[Python — python-dotenv]] locally, K8s in prod.
 - **kubectl + Minikube locally** — CLI and single-node cluster for learning; production commands live in [[Commands/K8S — kubectl & Minikube]]; YAML patterns in **Codes/K8S —** notes.
+- **Nodes run Linux** — debug with [[Linux]], [[Commands/Linux — Processes & Services]], [[Commands/Linux — Networking]].
 
 # K8S — Overview & Kubernetes Stack
 
@@ -63,19 +64,19 @@ Deep dive: [[Codes/K8S — Cluster & Namespaces]].
 
 ## Object Map (Your Checklist)
 
-| Topic | Codes note | Commands |
-| --- | --- | --- |
-| Cluster architecture | [[Codes/K8S — Cluster & Namespaces]] | [[Commands/K8S — kubectl & Minikube]] |
-| Namespaces | [[Codes/K8S — Cluster & Namespaces]] | `kubectl get ns` |
-| Deployments / Pods / ReplicaSets | [[Codes/K8S — Workloads]] | `kubectl get deploy,pods` |
-| StatefulSets | [[Codes/K8S — Workloads]] | `kubectl get sts` |
-| Jobs / CronJobs | [[Codes/K8S — Workloads]] | `kubectl get jobs,cronjobs` |
-| Services | [[Codes/K8S — Networking]] | `kubectl get svc` |
-| Ingress | [[Codes/K8S — Networking]] | `kubectl get ingress` |
-| PVC / StorageClass | [[Codes/K8S — Storage]] | `kubectl get pvc,sc` |
-| ConfigMaps / Secrets | [[Codes/K8S — Configuration & Security]] | `kubectl get cm,secret` |
-| ServiceAccounts | [[Codes/K8S — Configuration & Security]] | `kubectl get sa` |
-| Local dev cluster | [[Commands/K8S — kubectl & Minikube]] | `minikube start` |
+| Topic                            | Codes note                               | Commands                              |
+| -------------------------------- | ---------------------------------------- | ------------------------------------- |
+| Cluster architecture             | [[Codes/K8S — Cluster & Namespaces]]     | [[Commands/K8S — kubectl & Minikube]] |
+| Namespaces                       | [[Codes/K8S — Cluster & Namespaces]]     | `kubectl get ns`                      |
+| Deployments / Pods / ReplicaSets | [[Codes/K8S — Workloads]]                | `kubectl get deploy,pods`             |
+| StatefulSets                     | [[Codes/K8S — Workloads]]                | `kubectl get sts`                     |
+| Jobs / CronJobs                  | [[Codes/K8S — Workloads]]                | `kubectl get jobs,cronjobs`           |
+| Services                         | [[Codes/K8S — Networking]]               | `kubectl get svc`                     |
+| Ingress                          | [[Codes/K8S — Networking]]               | `kubectl get ingress`                 |
+| PVC / StorageClass               | [[Codes/K8S — Storage]]                  | `kubectl get pvc,sc`                  |
+| ConfigMaps / Secrets             | [[Codes/K8S — Configuration & Security]] | `kubectl get cm,secret`               |
+| ServiceAccounts                  | [[Codes/K8S — Configuration & Security]] | `kubectl get sa`                      |
+| Local dev cluster                | [[Commands/K8S — kubectl & Minikube]]    | `minikube start`                      |
 
 ---
 
@@ -183,6 +184,8 @@ Keep YAML in Codes; keep copy-paste shell in Commands.
 - [[Commands/K8S — kubectl & Minikube]]
 
 ### Vault cross-links
+
+- [[Linux]] — node troubleshooting (processes, disk, network)
 
 - [[ML — Seldon]]
 - [[ML — BentoML]]

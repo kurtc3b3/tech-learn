@@ -192,6 +192,8 @@ Pair with `gh pr checks` — [[Commands/CLI — Git & GitHub]].
 
 Use **both**: pytest for deep integration tests; Newman for portable smoke collections.
 
+For **throughput and latency under load**, use [[Load Testing]] (oha, k6, Locust) — Newman is not a load generator.
+
 ---
 
 ## OpenAPI / Swagger Link

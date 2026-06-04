@@ -95,13 +95,13 @@ flowchart LR
     EXT --> WEB[Third-party APIs / sites]
 ```
 
-| Layer | Responsibility | Avoid |
-| --- | --- | --- |
-| **Route / command** | Parse input, auth, HTTP status, call one service method | Business rules, SQL, raw HTML parsing |
-| **Service** | Use cases, orchestration, transactions | Framework types, request objects |
-| **Repository** | CRUD, queries, unit of work | HTTP or CLI concerns |
-| **Schema (Pydantic)** | API request/response, settings | ORM entities leaking to clients |
-| **Model (ORM / dataclass)** | Persistence, internal DTOs | Untyped dicts at boundaries |
+| Layer                       | Responsibility                                          | Avoid                                 |
+| --------------------------- | ------------------------------------------------------- | ------------------------------------- |
+| **Route / command**         | Parse input, auth, HTTP status, call one service method | Business rules, SQL, raw HTML parsing |
+| **Service**                 | Use cases, orchestration, transactions                  | Framework types, request objects      |
+| **Repository**              | CRUD, queries, unit of work                             | HTTP or CLI concerns                  |
+| **Schema (Pydantic)**       | API request/response, settings                          | ORM entities leaking to clients       |
+| **Model (ORM / dataclass)** | Persistence, internal DTOs                              | Untyped dicts at boundaries           |
 
 **Concept references:** [[API - FastAPI — Dependency Injection & User Management]], [[API - FastAPI — Lifespan]], [[ORM - CRUD]], [[ORM - Queries]], [[ORM - Async]], [[Python — Pydantic]].
 
@@ -160,12 +160,12 @@ fetch → parse → normalize → persist
 
 **Purpose:** Swap algorithms or backends without changing callers.
 
-| Concern | Sync strategy | Async strategy |
-| --- | --- | --- |
-| HTTP client | [[Python — requests Package]] | [[Python — httpx Package]] |
-| Low-level pool | [[Python — urllib3 Package]] | httpx transport |
-| Concurrency model | threads / [[Python — multiprocessing]] | [[Python — asyncio]] |
-| HTML parser | `lxml` vs `html.parser` in bs4 | [[Python — BeautifulSoup4 (bs4)]] |
+| Concern           | Sync strategy                          | Async strategy                    |
+| ----------------- | -------------------------------------- | --------------------------------- |
+| HTTP client       | [[Python — requests Package]]          | [[Python — httpx Package]]        |
+| Low-level pool    | [[Python — urllib3 Package]]           | httpx transport                   |
+| Concurrency model | threads / [[Python — multiprocessing]] | [[Python — asyncio]]              |
+| HTML parser       | `lxml` vs `html.parser` in bs4         | [[Python — BeautifulSoup4 (bs4)]] |
 
 ### 7. Decorator / wrapper
 
@@ -269,6 +269,8 @@ flowchart LR
 | Request/response models | [[API - FastAPI — Pydantic Models]], [[Python — Pydantic]] |
 | Modular apps | [[API - FastAPI — Routers & Modular Applications]] |
 | Auth & DI | [[API - FastAPI — Dependency Injection & User Management]] |
+| Rate limiting | [[API - FastAPI — Rate Limiting (SlowAPI)]], [[DB — Redis]] |
+| Load / performance testing | [[Load Testing]], [[Load Testing — k6]], [[Load Testing — Locust]] |
 | Startup/shutdown | [[API - FastAPI — Lifespan]], [[Python — contextlib]] |
 | Real-time | [[API - FastAPI — WebSockets]], [[API - FastAPI — Server-Sent Events (SSE)]], [[Python — websockets Package]] |
 | HTML responses | [[API - FastAPI — Templates (Jinja2)]], [[Python — Jinja2 Package]] |
@@ -312,6 +314,7 @@ See [[AI]] for the full stack map, learning path, and all Codes notes.
 | Orchestration | [[AI — LangChain]], [[AI — LangGraph]], [[AI — Haystack]], [[AI — LlamaIndex]] |
 | Document parsing | [[AI — Docling]], [[AI — MegaParse]] |
 | Vector stores | [[AI — Chroma]], [[AI — FAISS]], [[AI — Qdrant]], [[AI — Milvus]] |
+| Google agents (ADK) | [[AI — ADK]] |
 | Multi-agent / typed agents | [[AI — CrewAI]], [[AI — Agno]], [[AI — Pydantic AI]], [[AI — DSPy]] |
 | Protocols | [[AI — MCP]], [[AI — A2A]], [[AI — ACP]] |
 | Evaluation & memory | [[AI — RAGAS]], [[AI — Mem0]] |
@@ -330,6 +333,7 @@ See [[Machine Learning]] for the full stack map, lifecycle, and all Codes notes.
 | Deep learning / forecasting | [[ML — PyTorch]], [[ML — Prophet]] |
 | Selection & tuning | [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]] |
 | Graph features | [[ML — NetworkX]] |
+| Data & pipeline versioning | [[DVC]], [[ML — DVC]] |
 | Experiment tracking | [[ML — MLflow]] |
 | Feature store | [[ML — Feast]] |
 | Model serving | [[ML — BentoML]], [[ML — Seldon]] |
@@ -606,6 +610,10 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[CLI]] — git, Docker, Newman + Python Typer
 - [[DB]] — Redis, Kafka, RabbitMQ, Mongo, Neo4j, ELK, Influx, Prometheus/Grafana
 - [[GCP]] — Google Cloud (conceptual map)
+- [[System Design]] — solutions / enterprise architect practice (soft skills, governance, economics)
+- [[Scrum]] — agile delivery (framework, backlog, metrics, scaling)
+- [[Linux]] — server shell, systemd, Bash scripting
+- [[Cybersecurity]] — fundamentals, threats, compliance (concept)
 - [[Build a Python Backend Application from Scratch]] — original checklist (superseded by this note for navigation)
 
 ---

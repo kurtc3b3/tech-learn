@@ -58,17 +58,17 @@ flowchart TD
 
 ## Checklist Map
 
-| Tool | Codes note | Common Python / ops use |
-| --- | --- | --- |
-| Redis | [[DB — Redis]] | Cache, Celery, locks, pub/sub |
-| Kafka | [[DB — Kafka]] | Event streaming, audit log |
-| RabbitMQ | [[DB — RabbitMQ]] | Celery broker, AMQP routing |
-| Mongo | [[DB — MongoDB]] | Document store, flexible schema |
-| Neo4j | [[DB — Neo4j]] | Graph traversal, recommendations |
-| ELK | [[DB — ELK]] | Centralized logs (Elasticsearch) |
-| Influx | [[DB — InfluxDB]] | High-cardinality time series |
-| Prometheus | [[DB — Prometheus & Grafana]] | Pull metrics, alerting |
-| Grafana | [[DB — Prometheus & Grafana]] | Dashboards, visualization |
+| Tool       | Codes note                    | Common Python / ops use          |
+| ---------- | ----------------------------- | -------------------------------- |
+| Redis      | [[DB — Redis]]                | Cache, Celery, locks, pub/sub    |
+| Kafka      | [[DB — Kafka]]                | Event streaming, audit log       |
+| RabbitMQ   | [[DB — RabbitMQ]]             | Celery broker, AMQP routing      |
+| Mongo      | [[DB — MongoDB]]              | Document store, flexible schema  |
+| Neo4j      | [[DB — Neo4j]]                | Graph traversal, recommendations |
+| ELK        | [[DB — ELK]]                  | Centralized logs (Elasticsearch) |
+| Influx     | [[DB — InfluxDB]]             | High-cardinality time series     |
+| Prometheus | [[DB — Prometheus & Grafana]] | Pull metrics, alerting           |
+| Grafana    | [[DB — Prometheus & Grafana]] | Dashboards, visualization        |
 
 ---
 

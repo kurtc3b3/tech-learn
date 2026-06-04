@@ -4,6 +4,7 @@
 - **Security utilities** — OAuth2/JWT helpers are baked in and auto-surface in Swagger UI, which is a significant time saver.
 - **Background Tasks** — a lightweight way to do fire-and-forget work without pulling in Celery for simple cases.
 - **Standards-based / OpenAPI interoperability** — the fact that it emits a real OpenAPI 3.x spec means the whole ecosystem of tooling just works.
+- **Rate limiting** — [[API - FastAPI — Rate Limiting (SlowAPI)]] for per-route and global HTTP throttling; use [[DB — Redis]] as the backend when running multiple workers.
 # FastAPI — Overview & Key Advantages
 
 ## What is a Web API?
@@ -61,7 +62,7 @@ FastAPI has **first-class WebSocket support** built in. You can define WebSocket
 
 ### 7. Dependency Injection System
 
-FastAPI's built-in **dependency injection** (`Depends`) is a powerful, composable system for sharing logic across routes — database sessions, authentication, rate limiting, feature flags. Dependencies can themselves depend on other dependencies, forming a clean graph that FastAPI resolves automatically.
+FastAPI's built-in **dependency injection** (`Depends`) is a powerful, composable system for sharing logic across routes — database sessions, authentication, feature flags. For **HTTP rate limiting**, prefer [[API - FastAPI — Rate Limiting (SlowAPI)]] (decorators + optional Redis); use `Depends()` when you need custom per-user logic inside a single route. Dependencies can themselves depend on other dependencies, forming a clean graph that FastAPI resolves automatically.
 
 ### 8. Security & Authentication Utilities
 
@@ -94,6 +95,7 @@ Because FastAPI outputs a standard **OpenAPI 3.x** spec, the ecosystem of toolin
 | ASGI server        | Uvicorn                             |
 | Process management | Gunicorn + Uvicorn workers          |
 | Real-time          | WebSockets (built-in)               |
+| Rate limiting      | SlowAPI (+ Redis in prod)           |
 | Docs               | Swagger UI + ReDoc (auto-generated) |
 
 ---
@@ -103,6 +105,9 @@ Because FastAPI outputs a standard **OpenAPI 3.x** spec, the ecosystem of toolin
 - [[API - FastAPI — REST Principles & HTTP Methods]]
 - [[API - FastAPI — Pydantic Models]]
 - [[API - FastAPI — Dependency Injection & User Management]]
+- [[API - FastAPI — Rate Limiting (SlowAPI)]]
+- [[Load Testing]] — oha, k6, Locust, JMeter
+- [[Cybersecurity — Fundamentals & Controls]] — OWASP, API security
 - [[API - FastAPI — Lifespan]]
 - [[API - FastAPI — Sub-Applications, Mount & CORS]]
 - [[API - FastAPI — Routers & Modular Applications]]
@@ -110,10 +115,11 @@ Because FastAPI outputs a standard **OpenAPI 3.x** spec, the ecosystem of toolin
 - [[API - FastAPI — WebSockets]]
 - [[API - FastAPI — Server-Sent Events (SSE)]]
 - [[API - FastAPI — OpenAPI Specification]]
+- [[DB — Redis]] — shared rate-limit storage for SlowAPI
 - [[Web]] — Flask, Django, Tornado (when not choosing FastAPI)
 -  [[Python — asyncio]]
 - [[fastapi tutorials]]
 
 ## Tags
 
-#fastapi #python #webapi #rest #backend #api-design
+#fastapi #python #webapi #rest #backend #api-design #slowapi #rate-limiting

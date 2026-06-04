@@ -4,6 +4,7 @@
 - **LangChain + LangGraph** — default orchestration stack for composable chains and stateful multi-step agents.
 - **Vector DB choice** — Chroma for local/dev, Qdrant/Milvus for production scale, FAISS for in-process search.
 - **MCP vs A2A vs ACP** — MCP connects LLMs to tools/data; A2A connects agents to agents; ACP connects coding agents to editors (stdio JSON-RPC).
+- **ADK (Google)** — code-first agents + Workflow graphs; deploy on [[GCP]]; pairs with Gemini and [[AI — A2A]].
 - **Evaluate before shipping** — use RAGAS for retrieval quality; Mem0 (or framework memory) for long-term user context.
 
 # AI — Overview & Stack Map
@@ -75,7 +76,8 @@ flowchart TB
 | Pattern                   | Best when                           | Primary references                                      |
 | ------------------------- | ----------------------------------- | ------------------------------------------------------- |
 | Single tool-calling agent | One domain, few tools               | [[AI — LangChain]], [[AI — Pydantic AI]], [[AI — Agno]] |
-| Graph / state machine     | Branching, loops, human-in-the-loop | [[AI — LangGraph]]                                      |
+| Google-native agent + deploy | Gemini, Cloud Run, Vertex paths  | [[AI — ADK]]                                            |
+| Graph / state machine     | Branching, loops, human-in-the-loop | [[AI — LangGraph]], [[AI — ADK]] (Workflow)             |
 | Role crew                 | Clear job titles and handoffs       | [[AI — CrewAI]]                                         |
 | Declarative programs      | Optimize prompts/pipelines          | [[AI — DSPy]]                                           |
 | Tool protocol             | Standard tool surface for any host  | [[AI — MCP]]                                            |
@@ -86,12 +88,12 @@ flowchart TB
 
 ## Vector Stores — When to Use Which
 
-| Store | Deployment | Strengths | References |
-| --- | --- | --- | --- |
-| **Chroma** | Embedded / local server | Fastest local dev, simple API | [[AI — Chroma]] |
-| **FAISS** | In-process library | Maximum speed, no server | [[AI — FAISS]] |
-| **Qdrant** | Self-hosted or cloud | Filters, hybrid search, production | [[AI — Qdrant]] |
-| **Milvus** | Cluster / Zilliz cloud | Billion-scale, heavy workloads | [[AI — Milvus]] |
+| Store      | Deployment              | Strengths                          | References      |
+| ---------- | ----------------------- | ---------------------------------- | --------------- |
+| **Chroma** | Embedded / local server | Fastest local dev, simple API      | [[AI — Chroma]] |
+| **FAISS**  | In-process library      | Maximum speed, no server           | [[AI — FAISS]]  |
+| **Qdrant** | Self-hosted or cloud    | Filters, hybrid search, production | [[AI — Qdrant]] |
+| **Milvus** | Cluster / Zilliz cloud  | Billion-scale, heavy workloads     | [[AI — Milvus]] |
 
 Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haystack]] integrate most of these.
 
@@ -102,10 +104,11 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 | Concern                | Typical choice                |
 | ---------------------- | ----------------------------- |
 | Orchestration          | LangChain, LangGraph          |
+| Google agent SDK       | ADK                           |
 | RAG framework          | LlamaIndex, Haystack          |
 | Document parsing       | Docling, MegaParse            |
 | Vector storage         | Chroma, Qdrant, FAISS, Milvus |
-| Multi-agent crews      | CrewAI, Agno                  |
+| Multi-agent crews      | CrewAI, Agno, ADK             |
 | Typed agents           | Pydantic AI                   |
 | Prompt optimization    | DSPy                          |
 | Tool standard          | MCP                           |
@@ -113,6 +116,7 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 | IDE agents             | ACP                           |
 | RAG evaluation         | RAGAS                         |
 | Long-term memory       | Mem0                          |
+| Cloud deploy (Google)  | ADK + [[GCP]]                 |
 | Validation / settings  | [[Python — Pydantic]]         |
 | API surface            | [[API - FastAPI]]             |
 | Async I/O              | [[Python — asyncio]]          |
@@ -126,8 +130,9 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 3. **Vectors** — [[AI — Chroma]] locally, then [[AI — Qdrant]] for production patterns
 4. **Documents** — [[AI — Docling]] for PDFs; [[AI — MegaParse]] for layout-heavy files
 5. **Teams** — [[AI — CrewAI]] or [[AI — Agno]]
-6. **Protocols** — [[AI — MCP]] for tools; [[AI — A2A]] if agents call remote agents
-7. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
+6. **Google stack** — [[AI — ADK]] + [[GCP]] when standardizing on Gemini and Cloud Run
+7. **Protocols** — [[AI — MCP]] for tools; [[AI — A2A]] if agents call remote agents
+8. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
 
 See also [[Python Development]] Phase 7 and [[NLP]].
 
@@ -156,6 +161,7 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 
 ### Agents & optimization
 
+- [[AI — ADK]]
 - [[AI — CrewAI]]
 - [[AI — Agno]]
 - [[AI — Pydantic AI]]
@@ -181,6 +187,8 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 - [[Python — Pydantic]]
 - [[Python — markdownify]]
 - [[API - FastAPI]]
+- [[GCP]]
+- [[Cybersecurity — Threats & Attacks]] — adversarial AI
 - [[Python Development]]
 
 ---

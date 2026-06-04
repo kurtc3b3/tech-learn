@@ -40,16 +40,16 @@ flowchart TD
 
 ## Flask vs Django vs Tornado vs FastAPI
 
-| | [[Web — Flask]] | [[Web — Django]] | [[Web — Tornado]] | [[API - FastAPI]] |
-| --- | --- | --- | --- | --- |
-| Style | Microframework | Full-stack | Async web + server | Async API-first |
-| Interface | WSGI (sync default) | WSGI / ASGI (4.x+) | Own event loop | ASGI |
-| ORM | Extensions / [[ORM - SQLAlchemy]] | Built-in Django ORM | Bring your own | [[ORM - SQLAlchemy]] |
-| Admin UI | No (extensions) | **Built-in** | No | No |
-| Templates | [[Python — Jinja2 Package]] | Django templates | Tornado templates | Jinja2 optional |
-| API docs | Manual / extensions | DRF + drf-spectacular | Manual | **OpenAPI auto** |
-| Learning curve | Low | High | Medium | Medium |
-| Best for | Small apps, prototypes | CMS, internal tools, monoliths | Legacy async services | New APIs, microservices |
+|                | [[Web — Flask]]                   | [[Web — Django]]               | [[Web — Tornado]]     | [[API - FastAPI]]       |
+| -------------- | --------------------------------- | ------------------------------ | --------------------- | ----------------------- |
+| Style          | Microframework                    | Full-stack                     | Async web + server    | Async API-first         |
+| Interface      | WSGI (sync default)               | WSGI / ASGI (4.x+)             | Own event loop        | ASGI                    |
+| ORM            | Extensions / [[ORM - SQLAlchemy]] | Built-in Django ORM            | Bring your own        | [[ORM - SQLAlchemy]]    |
+| Admin UI       | No (extensions)                   | **Built-in**                   | No                    | No                      |
+| Templates      | [[Python — Jinja2 Package]]       | Django templates               | Tornado templates     | Jinja2 optional         |
+| API docs       | Manual / extensions               | DRF + drf-spectacular          | Manual                | **OpenAPI auto**        |
+| Learning curve | Low                               | High                           | Medium                | Medium                  |
+| Best for       | Small apps, prototypes            | CMS, internal tools, monoliths | Legacy async services | New APIs, microservices |
 
 ---
 

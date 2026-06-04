@@ -235,12 +235,12 @@ blob.words; blob.tags; blob.sentiment  # polarity, subjectivity
 
 ## Pitfalls
 
-| Issue | Fix |
-| --- | --- |
-| `LookupError: punkt` | `nltk.download("punkt_tab")` |
-| Lemma unchanged | Pass WordNet POS to `lemmatize` |
-| Slow large corpora | Batch offline; migrate hot path to spaCy |
-| Docker without network | Pre-download at image build |
+| Issue                  | Fix                                      |
+| ---------------------- | ---------------------------------------- |
+| `LookupError: punkt`   | `nltk.download("punkt_tab")`             |
+| Lemma unchanged        | Pass WordNet POS to `lemmatize`          |
+| Slow large corpora     | Batch offline; migrate hot path to spaCy |
+| Docker without network | Pre-download at image build              |
 
 ---
 
