@@ -7,7 +7,9 @@
 - **Scale only when needed** — single-team Scrum first; [[Scrum — Scaling (SAFe & LeSS)]] when many teams must align.
 - **Concept-only** — no tooling or ceremony scripts; links to [[System Design — Delivery & Planning]] for architect context.
 
-# Scrum — Overview & Agile Delivery Framework
+# Scrum — Overview & Agile Delivery
+
+> **From scratch checklist:** [[Build for Enterprise Architecture and Agile Delivery from Scratch]] · All roadmaps: [[README]]
 
 ## What is Scrum (in this vault)?
 

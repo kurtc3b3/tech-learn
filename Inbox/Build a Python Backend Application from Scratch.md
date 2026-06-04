@@ -1,4 +1,4 @@
-> **Expanded roadmap:** See [[Python Development]] for flow, design patterns, and full references. This note remains a short checklist.
+> **Expanded roadmap:** See [[Python Development]] for flow, design patterns, and full references. This note remains a short checklist. All roadmaps: [[README]].
 
 - **Templating:** Create a reusable python template project using `copier` [[Python — Copier]]
 - **Dependency Manager:** Start with `uv` `poetry` [[Python — uv]] [[Python — Poetry]]
@@ -15,5 +15,4 @@
 - **Data platform:** See [[DB]] — [[DB — Redis]], [[DB — Kafka]], [[DB — RabbitMQ]], [[DB — MongoDB]], [[DB — Neo4j]], [[DB — ELK]], [[DB — InfluxDB]], [[DB — Prometheus & Grafana]]. Relational: [[ORM - SQLAlchemy]]
 - **AI:** See [[AI]] — [[AI — LangChain]], [[AI — LangGraph]], [[AI — CrewAI]], [[AI — Agno]], [[AI — MCP]], [[AI — ACP]], [[AI — Docling]]. ML/MLOps: [[Machine Learning]] [[ML — MLflow]] [[ML — Feast]]. Jobs: [[Processing]] [[Processing — Celery]] [[Processing — Ray]]
 - **Anti-bot Protection Bypassing:** For anti-bot protection issues, use `camoufox`, `botright`, `botasaurus`. For residential proxy use `brightdata` [TODO: Concept and Codes]
-
 - [[Python — functools]], [[Python — itertools]], [[Python — collections]], [[Python — contextlib]]

@@ -2,7 +2,7 @@
 
 A map of how to **design, structure, and grow** Python backend and automation projects in this vault — from an empty repo to production-ready APIs, scrapers, and CLIs. Use this note for **why** and **in what order**; use linked **Codes** notes for **how**.
 
-> Consolidates the roadmap from [[Build a Python Backend Application from Scratch]] into a single concept with references and design patterns.
+> Consolidates the roadmap from [[Build a Python Backend Application from Scratch]] into a single concept with references and design patterns. All roadmaps: [[README]].
 
 ---
 

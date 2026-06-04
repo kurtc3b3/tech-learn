@@ -8,6 +8,8 @@
 
 # Cybersecurity — Overview & Security Knowledge Map
 
+> **From scratch checklist:** [[Build a Cybersecurity Practice Path from Scratch]] · All roadmaps: [[README]]
+
 ## What is Cybersecurity (in this vault)?
 
 **Cybersecurity** here means **protecting systems and data** from unauthorized access, disruption, and misuse — through controls, governance, detection, and response. These notes summarize terms and models from your Inbox reference for study, architecture reviews, and compliance conversations.

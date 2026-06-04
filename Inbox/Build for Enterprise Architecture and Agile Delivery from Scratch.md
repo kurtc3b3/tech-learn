@@ -1,0 +1,15 @@
+> **Expanded roadmap:** See [[System Design]] and [[Scrum]] (concept-only). This note is a short checklist — no CLI or code.
+
+- **Stakeholders & communication:** Power mapping, executive narrative, conflict resolution [[System Design — Stakeholders & Communication]]
+- **Delivery & planning:** Roadmaps, risks, dependencies with agile execution [[System Design — Delivery & Planning]] [[Scrum]]
+- **Economics & performance:** CapEx/OpEx, FinOps, capacity, SLO thinking [[System Design — Economics & Performance]] [[GCP]]
+- **Strategy & technology:** Build vs buy, standards, innovation adoption [[System Design — Strategy & Technology]]
+- **Leadership & culture:** Influence without authority, trust, change [[System Design — Leadership & Culture]]
+- **Governance & documentation:** ARB, ADRs, compliance, living docs [[System Design — Governance & Documentation]] [[Cybersecurity — Frameworks & Compliance]]
+- **Scrum framework:** Roles, events, artifacts [[Scrum — Framework]]
+- **Sprint execution:** Planning, daily sync, retro [[Scrum — Sprint Planning & User Stories]] [[Scrum — Daily Scrum & Retrospective]]
+- **Backlog management:** Product backlog and refinement [[Scrum — Product Backlog]] [[Scrum — Backlog Refinement]]
+- **Metrics & improvement:** Flow, quality, predictability [[Scrum — Metrics]]
+- **Scaling agile:** SAFe and LeSS when one team is not enough [[Scrum — Scaling (SAFe & LeSS)]]
+- **Compare methods:** When Kanban fits better [[Scrum — Scrum vs Kanban]]
+- **Certification path (optional):** Exam-oriented summary [[Scrum — Certification]]

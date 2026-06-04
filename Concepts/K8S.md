@@ -9,6 +9,8 @@
 
 # K8S — Overview & Kubernetes Stack
 
+> **From scratch checklist:** [[Build a DevOps and Platform Stack from Scratch]] · All roadmaps: [[README]]
+
 ## What is K8S (in this vault)?
 
 **Kubernetes (K8s)** is a **container orchestration platform** — it runs Docker/OCI images across a **cluster** of nodes, keeps workloads healthy, and exposes networking and storage primitives. This hub maps the object model from your checklist and links **concept/YAML notes** ([[Codes/K8S — Cluster & Namespaces]], workloads, networking, storage, config) separately from **CLI commands** ([[Commands/K8S — kubectl & Minikube]]).

@@ -6,7 +6,9 @@
 - **Headless in CI** — `oha --no-tui`, `k6 run`, `locust --headless`, `jmeter -n` for pipelines.
 - **Respect rate limits** — [[API - FastAPI — Rate Limiting (SlowAPI)]] and WAF rules affect results.
 
-# Load Testing — Overview & Tool Map
+# Load Testing
+
+> **From scratch checklist:** [[Build a DevOps and Platform Stack from Scratch]] (load testing section) · All roadmaps: [[README]]
 
 ## What is Load Testing (in this vault)?
 
