@@ -32,7 +32,7 @@
 | **Firestore** | Document NoSQL | Mobile/web sync, flexible docs |
 | **Dataflow** | Beam stream/batch | Large ETL |
 | **Cloud Dataproc** | Managed Spark/Hadoop | Batch on clusters |
-| **Composer** | Managed Airflow | DAG orchestration |
+| **Composer** | Managed Airflow | [[ORCHESTRATION — Airflow]] |
 | **Vertex AI** | Training, endpoints, pipelines | [[Machine Learning]] |
 | **Cloud Logging & Monitoring** | Logs + metrics | Like [[DB — ELK]] / [[DB — Prometheus & Grafana]] |
 | **Secret Manager** | Central secrets | Prod env vars |
@@ -74,7 +74,7 @@ flowchart TD
 | Analytics SQL | BigQuery | Warehouse, not app OLTP |
 | Stream/batch ETL | Dataflow | [[Processing — Celery]] chains (smaller scale) |
 | Spark jobs | Dataproc | Self-hosted Spark |
-| Workflow DAGs | Composer | Celery Beat + [[Processing]] |
+| Workflow DAGs | Composer | [[ORCHESTRATION — Airflow]] |
 | Model platform | Vertex AI | [[ML — MLflow]], [[ML — BentoML]], [[ML — Seldon]] on GKE |
 
 ---

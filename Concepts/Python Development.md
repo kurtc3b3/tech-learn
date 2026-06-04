@@ -356,6 +356,16 @@ See [[Processing]] for when to use Celery vs Ray vs in-process async.
 | Task queue & cron | [[Processing — Celery]] |
 | Parallel / distributed compute | [[Processing — Ray]] |
 
+### Phase 7e — Workflow orchestration (DAGs)
+
+See [[ORCHESTRATION]] for multi-step scheduled pipelines — distinct from Celery task queues.
+
+| Area | References |
+| --- | --- |
+| Overview & decision flow | [[ORCHESTRATION]] |
+| Data / ETL DAGs | [[ORCHESTRATION — Airflow]] |
+| ML pipelines on K8s | [[ORCHESTRATION — Kubeflow Pipelines]] |
+
 ### Phase 8 — Anti-bot and proxies (planned)
 
 For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced: camoufox, botright, botasaurus, brightdata — *TODO: Codes notes*.
@@ -514,6 +524,12 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Processing — Celery]]
 - [[Processing — Ray]]
 
+### Workflow orchestration
+
+- [[ORCHESTRATION]] — concept hub
+- [[ORCHESTRATION — Airflow]]
+- [[ORCHESTRATION — Kubeflow Pipelines]]
+
 ### Kubernetes
 
 - [[K8S]] — concept hub
@@ -548,6 +564,8 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Flexible JSON documents?       | [[DB — MongoDB]]                                                 |
 | Production logs search?        | [[DB — ELK]]                                                     |
 | Latency/error dashboards?      | [[DB — Prometheus & Grafana]]                                    |
+| Multi-step scheduled ETL DAG?    | [[ORCHESTRATION — Airflow]]                                      |
+| ML train/eval pipeline on K8s?   | [[ORCHESTRATION — Kubeflow Pipelines]]                           |
 | Env-based config?              | [[Python — Pydantic]] settings or [[Python — python-dotenv]]     |
 | CPU-bound parallelism?         | [[Python — multiprocessing]] (not asyncio)                       |
 | Custom decorator?              | `@wraps` from [[Python — functools]]                             |
@@ -601,6 +619,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[Machine Learning]] — sklearn, boosting, MLflow, model serving
 - [[NLP]] — spaCy, NLTK, Gensim, TextBlob
 - [[Processing]] — Celery, Ray
+- [[ORCHESTRATION]] — Airflow, Kubeflow Pipelines
 - [[Web]] — Flask, Django, Tornado
 - [[K8S]] — Kubernetes (Codes + Commands)
 - [[CLI]] — git, Docker, Newman + Python Typer
