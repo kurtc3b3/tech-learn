@@ -9,6 +9,8 @@
 
 # AI — Overview & Stack Map
 
+> **From scratch checklist:** [[Build an AI Application from Scratch]] · All roadmaps: [[README]]
+
 ## What is an AI Application?
 
 An **AI application** in Python goes beyond a single `chat.completions` call. It combines **models**, **retrieval**, **tools**, **memory**, and often **multi-agent coordination** into a system that can answer questions, act on data, and automate workflows reliably.

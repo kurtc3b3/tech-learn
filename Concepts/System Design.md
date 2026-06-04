@@ -8,6 +8,8 @@
 
 # System Design — Overview & Architect Practice
 
+> **From scratch checklist:** [[Build for Enterprise Architecture and Agile Delivery from Scratch]] · All roadmaps: [[README]]
+
 ## What is System Design (in this vault)?
 
 **System design** here means the **professional practice of shaping solutions** — from discovery through delivery, cost, governance, and adoption. It covers what solutions and enterprise architects do *around* the build: who to align with, how to communicate, how to plan and measure, and how to keep decisions durable.

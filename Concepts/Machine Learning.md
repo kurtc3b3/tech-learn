@@ -9,6 +9,8 @@
 
 # Machine Learning — Overview & Stack Map
 
+> **From scratch checklist:** [[Build an ML and MLOps Pipeline from Scratch]] · All roadmaps: [[README]]
+
 ## What is Machine Learning (in this vault)?
 
 **Machine learning** here means building **predictive models** from data — training, evaluating, explaining, tracking, and serving models in Python backend and data pipelines. It complements [[AI]] (LLM agents, RAG) and [[NLP]] (text-specific tooling).

@@ -8,6 +8,8 @@
 
 # Linux — Overview & Operator Stack
 
+> **From scratch checklist:** [[Build a Linux and CLI Operations Foundation from Scratch]] · All roadmaps: [[README]]
+
 ## What is Linux (in this vault)?
 
 **Linux** here means **day-to-day operator skills** on Debian/Ubuntu-style servers and dev machines: navigate the filesystem, manage permissions, inspect processes, tune networking, schedule jobs, and write small Bash scripts. Security-lab content (Kali) is optional and scoped to **ethical, authorized** use.
