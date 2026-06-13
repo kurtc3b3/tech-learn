@@ -2,6 +2,7 @@
 
 - **Two CLI layers in this vault** — **build** CLIs in Python ([[Python — Typer]], [[Python — Click & Rich]]); **operate** with dev tools (git, Docker, Newman) in **Commands/CLI —** notes.
 - **git + gh** — version control locally; GitHub CLI for PRs, issues, Actions from the terminal.
+- **git-cliff** — changelogs and release notes from Conventional Commits + tags.
 - **Docker + Compose** — package and run apps locally before [[K8S]]; same images often deploy to cluster.
 - **Postman + Newman** — design API collections in GUI; run them headless in CI with Newman against [[API - FastAPI]] services.
 - **Load testing CLIs** — oha, hey, JMeter in **Commands/Load Testing —**; k6 and Locust scripts in **Codes/** — hub [[Load Testing]].
@@ -59,6 +60,7 @@ flowchart LR
 | Topic | Commands note | Related vault |
 | --- | --- | --- |
 | Git / GitHub / gh | [[Commands/CLI — Git & GitHub]] | [[Linting — pre-commit]], PR workflow |
+| Changelog / releases | [[Commands/CLI — git-cliff]] | Conventional Commits, tags |
 | Docker / docker-compose | [[Commands/CLI — Docker & Compose]] | [[K8S]], [[ML — BentoML]] images |
 | Postman / Newman | [[Commands/CLI — Newman & Postman]] | [[API - FastAPI]], [[Unit Testing - pytest]] |
 | Load testing (oha, hey, JMeter) | [[Commands/Load Testing — oha]], [[Commands/Load Testing — hey]], [[Commands/Load Testing — JMeter]] | [[Load Testing]] |
@@ -91,6 +93,7 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 | Script with zero deps? | [[Python — argparse]] |
 | Save history / collaborate? | [[Commands/CLI — Git & GitHub]] |
 | Open PR from terminal? | `gh pr create` → [[Commands/CLI — Git & GitHub]] |
+| Generate release changelog? | [[Commands/CLI — git-cliff]] |
 | Run app + Postgres locally? | [[Commands/CLI — Docker & Compose]] |
 | Test REST collection in CI? | [[Commands/CLI — Newman & Postman]] |
 | Quick HTTP bench / load smoke? | [[Commands/Load Testing — oha]], [[Load Testing]] |
@@ -119,11 +122,12 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 
 1. **git basics** — commit, branch, merge — [[Commands/CLI — Git & GitHub]]
 2. **gh** — PRs and repo ops from terminal
-3. **Docker Compose** — one-file local stack — [[Commands/CLI — Docker & Compose]]
-4. **Typer** — first management CLI — [[Python — Typer]]
-5. **Newman** — export Postman collection, run in CI — [[Commands/CLI — Newman & Postman]]
-6. **Load testing** — oha bench → k6 thresholds — [[Load Testing]]
-7. **Connect to deploy** — image → [[K8S]]
+3. **git-cliff** — tags and release notes — [[Commands/CLI — git-cliff]]
+4. **Docker Compose** — one-file local stack — [[Commands/CLI — Docker & Compose]]
+5. **Typer** — first management CLI — [[Python — Typer]]
+6. **Newman** — export Postman collection, run in CI — [[Commands/CLI — Newman & Postman]]
+7. **Load testing** — oha bench → k6 thresholds — [[Load Testing]]
+8. **Connect to deploy** — image → [[K8S]]
 
 ---
 
@@ -132,6 +136,7 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 ### Commands (operator CLIs)
 
 - [[Commands/CLI — Git & GitHub]]
+- [[Commands/CLI — git-cliff]]
 - [[Commands/CLI — Docker & Compose]]
 - [[Commands/CLI — Newman & Postman]]
 
@@ -175,4 +180,4 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 
 ## Tags
 
-#cli #git #github #docker #postman #newman #load-testing #linux #devops #terminal #python #typer
+#cli #git #github #docker #postman #newman #git-cliff #changelog #load-testing #linux #devops #terminal #python #typer
