@@ -5,6 +5,7 @@
 - **Vector DB choice** — Chroma for local/dev, Qdrant/Milvus for production scale, FAISS for in-process search.
 - **MCP vs A2A vs ACP** — MCP connects LLMs to tools/data; A2A connects agents to agents; ACP connects coding agents to editors (stdio JSON-RPC).
 - **ADK (Google)** — code-first agents + Workflow graphs; deploy on [[GCP]]; pairs with Gemini and [[AI — A2A]].
+- **Agent Framework (Microsoft)** — production agents + graph workflows on Azure Foundry / OpenAI; migration path from AutoGen and Semantic Kernel — [[AI — Agent Framework]].
 - **Evaluate before shipping** — use RAGAS for retrieval quality; Mem0 (or framework memory) for long-term user context.
 - **Browser agents need a control surface** — CLI refs ([[Commands/CLI — agent-browser]]) or MCP ([[Browser Automation — Obscura]]); stealth fetch via [[Browser Automation — Camoufox]] when sites block bots.
 
@@ -46,7 +47,7 @@ flowchart LR
 | --- | --- | --- |
 | Fetch / scrape | Get raw content | [[Python — httpx Package]], [[Browser Automation — crawl4ai]], [[Browser Automation — Camoufox]] |
 | Parse | PDF/HTML → structured text | [[AI — Docling]], [[AI — MegaParse]] |
-| Orchestrate | Chain steps, agents, tools | [[AI — LangChain]], [[AI — LangGraph]] |
+| Orchestrate | Chain steps, agents, tools | [[AI — LangChain]], [[AI — LangGraph]], [[AI — Agent Framework]] |
 | Index / retrieve | Embeddings + search | [[AI — LlamaIndex]], [[AI — Haystack]], vector stores |
 | Generate | LLM + tools + memory | Agents below |
 | Evaluate | Quality metrics | [[AI — RAGAS]] |
@@ -79,8 +80,9 @@ flowchart TB
 | Pattern                   | Best when                           | Primary references                                      |
 | ------------------------- | ----------------------------------- | ------------------------------------------------------- |
 | Single tool-calling agent | One domain, few tools               | [[AI — LangChain]], [[AI — Pydantic AI]], [[AI — Agno]] |
+| Microsoft / Azure agents | Foundry, workflows, OTel | [[AI — Agent Framework]] |
 | Google-native agent + deploy | Gemini, Cloud Run, Vertex paths  | [[AI — ADK]]                                            |
-| Graph / state machine     | Branching, loops, human-in-the-loop | [[AI — LangGraph]], [[AI — ADK]] (Workflow)             |
+| Graph / state machine     | Branching, loops, human-in-the-loop | [[AI — LangGraph]], [[AI — ADK]] (Workflow), [[AI — Agent Framework]] |
 | Role crew                 | Clear job titles and handoffs       | [[AI — CrewAI]]                                         |
 | Declarative programs      | Optimize prompts/pipelines          | [[AI — DSPy]]                                           |
 | Tool protocol             | Standard tool surface for any host  | [[AI — MCP]]                                            |
@@ -106,8 +108,9 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 
 | Concern                | Typical choice                |
 | ---------------------- | ----------------------------- |
-| Orchestration          | LangChain, LangGraph          |
+| Orchestration          | LangChain, LangGraph, Agent Framework |
 | Google agent SDK       | ADK                           |
+| Microsoft agent SDK    | Agent Framework               |
 | RAG framework          | LlamaIndex, Haystack          |
 | Document parsing       | Docling, MegaParse            |
 | Vector storage         | Chroma, Qdrant, FAISS, Milvus |
@@ -137,9 +140,10 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 4. **Documents** — [[AI — Docling]] for PDFs; [[AI — MegaParse]] for layout-heavy files
 5. **Teams** — [[AI — CrewAI]] or [[AI — Agno]]
 6. **Google stack** — [[AI — ADK]] + [[GCP]] when standardizing on Gemini and Cloud Run
-7. **Protocols** — [[AI — MCP]] for tools; [[AI — A2A]] if agents call remote agents
-8. **Browser agents** — [[Commands/CLI — agent-browser]] or [[Browser Automation — Obscura]] MCP
-9. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
+7. **Microsoft / Azure stack** — [[AI — Agent Framework]] + Foundry when on Azure
+8. **Protocols** — [[AI — MCP]] for tools; [[AI — A2A]] if agents call remote agents
+9. **Browser agents** — [[Commands/CLI — agent-browser]] or [[Browser Automation — Obscura]] MCP
+10. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
 
 See also [[Python Development]] Phase 7 and [[NLP]].
 
@@ -168,6 +172,7 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 
 ### Agents & optimization
 
+- [[AI — Agent Framework]]
 - [[AI — ADK]]
 - [[AI — CrewAI]]
 - [[AI — Agno]]
