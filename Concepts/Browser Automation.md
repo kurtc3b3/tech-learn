@@ -57,6 +57,8 @@ flowchart TD
 | Tool | Best for | References |
 | --- | --- | --- |
 | **Playwright** | General browser control, E2E-style scraping, login | [[Browser Automation — Playwright]] |
+| **Puppeteer** | Node CDP automation | [[Codes/JavaScript — Puppeteer]] |
+| **WebdriverIO** | Node WebDriver E2E tests | [[Codes/JavaScript — WebdriverIO]] |
 | **Scrapy** | High-volume crawls, pipelines, sitemaps | [[Browser Automation — Scrapy]] |
 | **crawl4ai** | LLM-ready Markdown, RAG ingest, async crawl | [[Browser Automation — crawl4ai]] |
 | **ScrapeGraphAI** | Prompt/schema-driven extract graphs | [[Browser Automation — ScrapeGraphAI]] |
@@ -132,6 +134,8 @@ See [[AI]] RAG pipeline.
 - [[Browser Automation — Camoufox]]
 - [[Browser Automation — Obscura]]
 - [[Commands/CLI — agent-browser]]
+- [[Codes/JavaScript — Puppeteer]]
+- [[Codes/JavaScript — WebdriverIO]]
 - [[AI]]
 - [[Python — httpx Package]]
 - [[Python — BeautifulSoup4 (bs4)]]

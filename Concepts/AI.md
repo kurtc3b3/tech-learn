@@ -121,6 +121,7 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 | Agent interoperability | A2A                           |
 | IDE agents             | ACP                           |
 | Browser control (CLI)  | [[Commands/CLI — agent-browser]] |
+| AI chat UI (React)     | [[Codes/JavaScript — assistant-ui]] |
 | Browser control (MCP)  | [[Browser Automation — Obscura]] |
 | Stealth browser fetch  | [[Browser Automation — Camoufox]] |
 | RAG evaluation         | RAGAS                         |
@@ -188,6 +189,7 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 ### Browser agents & stealth
 
 - [[Commands/CLI — agent-browser]]
+- [[Codes/JavaScript — assistant-ui]]
 - [[Browser Automation — Obscura]]
 - [[Browser Automation — Camoufox]]
 - [[Browser Automation]] — full scraping stack

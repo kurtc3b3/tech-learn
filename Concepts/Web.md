@@ -4,7 +4,7 @@
 - **Flask = minimal WSGI microframework** — routes, Jinja2, extensions; ideal for small apps, internal tools, and HTML cheatsheet servers.
 - **Django = batteries-included monolith** — ORM, admin, auth, migrations; best when the whole product lives in one framework.
 - **Tornado = event-loop web server** — async handlers and long-lived connections before ASGI was standard; niche today vs FastAPI.
-- **Pick by surface area** — JSON API → FastAPI; CRUD admin site → Django; tiny server-rendered app → Flask; legacy Tornado services → maintain or migrate.
+- **Pick by surface area** — JSON API → FastAPI; CRUD admin site → Django; tiny server-rendered app → Flask; SPA dashboard → [[JavaScript Development]] + [[Codes/JavaScript — React]].
 
 # Web — Overview & Python Web Framework Stack
 
@@ -115,6 +115,8 @@ See [[API - FastAPI]], [[Python Development]] Phase 5.
 | Question | Choose |
 | --- | --- |
 | New JSON API with OpenAPI? | [[API - FastAPI]] |
+| React SPA + Python API? | [[JavaScript Development]], [[Codes/JavaScript — React]], [[Commands/JavaScript — Vite]] |
+| Full-stack React (SSR/routes)? | [[Commands/JavaScript — Next.js]] |
 | Admin + models + auth in one box? | [[Web — Django]] |
 | 50-line server-rendered tool? | [[Web — Flask]] |
 | Maintain existing Tornado service? | [[Web — Tornado]] (or plan migration to FastAPI) |
@@ -143,6 +145,7 @@ See [[API - FastAPI]], [[Python Development]] Phase 5.
 - [[Python — Jinja2 Package]]
 - [[ORM - SQLAlchemy]]
 - [[Python Development]]
+- [[JavaScript Development]]
 - [[Unit Testing - pytest]]
 
 ---

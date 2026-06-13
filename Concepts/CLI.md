@@ -67,6 +67,8 @@ flowchart LR
 | Load testing (oha, hey, JMeter) | [[Commands/Load Testing — oha]], [[Commands/Load Testing — hey]], [[Commands/Load Testing — JMeter]] | [[Load Testing]] |
 | Linux (essentials → admin) | [[Commands/Linux — Essentials]] … [[Commands/Linux — Bash Scripting]] | [[Linux]] |
 | Build Python CLI | [[Python — Typer]] | [[Python Development]] Phase 6 |
+| Node / npm / yarn | [[Commands/JavaScript — Node Toolchain]] | [[JavaScript Development]] |
+| Vite dev server | [[Commands/JavaScript — Vite]] | React SPA |
 | Rich terminal UI | [[Python — Click & Rich]] | Progress, tables |
 | Stdlib CLI | [[Python — argparse]] | No dependencies |
 
