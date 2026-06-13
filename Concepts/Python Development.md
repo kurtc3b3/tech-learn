@@ -257,7 +257,7 @@ flowchart LR
 | Parse | DOM traversal, CSS selectors | [[Python — BeautifulSoup4 (bs4)]] |
 | Normalize | HTML → Markdown for RAG/docs | [[Python — markdownify]] |
 | Orchestrate | Concurrent page fetches | [[Python — asyncio]] |
-| Browser / crawl | JS sites, scale, LLM extract | [[Browser Automation]], [[Browser Automation — Playwright]], [[Browser Automation — Scrapy]], [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]], [[Browser Automation — Scrapling]] |
+| Browser / crawl | JS sites, scale, LLM extract, stealth, agents | [[Browser Automation]], [[Browser Automation — Playwright]], [[Browser Automation — Scrapy]], [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]], [[Browser Automation — Scrapling]], [[Browser Automation — Camoufox]], [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]] |
 
 ### Phase 5 — API development
 
@@ -373,7 +373,7 @@ See [[ORCHESTRATION]] for multi-step scheduled pipelines — distinct from Celer
 
 ### Phase 8 — Anti-bot and proxies (planned)
 
-For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced: camoufox, botright, botasaurus, brightdata — *TODO: Codes notes*.
+For sites that block simple httpx scrapers — [[Browser Automation — Scrapling]]; advanced anti-bot — [[Browser Automation — Camoufox]]; agent CDP/MCP — [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]]; botright, botasaurus, brightdata — *TODO*.
 
 ### Phase 9 — Kubernetes & deployment
 
@@ -470,6 +470,10 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Browser Automation — crawl4ai]]
 - [[Browser Automation — ScrapeGraphAI]]
 - [[Browser Automation — Scrapling]]
+- [[Browser Automation — Camoufox]]
+- [[Browser Automation — Obscura]]
+- [[Commands/CLI — agent-browser]]
+- [[Browser Automation — Auto-Browse]]
 
 ### Scraping & content (HTTP layer)
 
@@ -588,6 +592,9 @@ Grouped for lookup; each link is the **how-to** for that library.
 | RAG ingest from web?           | [[Browser Automation — crawl4ai]]                                |
 | Extract by LLM prompt/schema?  | [[Browser Automation — ScrapeGraphAI]]                           |
 | Adaptive / stealth scraping?   | [[Browser Automation — Scrapling]]                               |
+| Heavy anti-bot / fingerprint?  | [[Browser Automation — Camoufox]]                                |
+| Agent browser (CLI / MCP)?     | [[Commands/CLI — agent-browser]], [[Browser Automation — Obscura]] |
+| NL Playwright (TypeScript)?    | [[Browser Automation — Auto-Browse]]                             |
 | Tabular ML baseline?           | [[ML — scikit-learn]] + [[ML — pandas]]                          |
 | Boost tabular performance?     | [[ML — XGBoost]] or [[ML — LightGBM]]                            |
 | Track experiments?             | [[ML — MLflow]]                                                  |
@@ -611,7 +618,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 
 | Topic                                       | Planned focus                                  |
 | ------------------------------------------- | ---------------------------------------------- |
-| camoufox, botright, botasaurus, brightdata  | Anti-bot and proxies                           |
+| botright, botasaurus, brightdata            | Anti-bot and proxies (remaining)               |
 
 ---
 
