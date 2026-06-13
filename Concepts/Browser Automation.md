@@ -5,6 +5,9 @@
 - **Scrapy for scale** — crawl thousands of URLs with middlewares, pipelines, and politeness built in.
 - **LLM scrapers when selectors break** — [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]] extract by prompt/schema instead of brittle CSS.
 - **Scrapling for adaptive + stealth** — parser + fetchers that survive layout changes and light anti-bot.
+- **Camoufox for heavy anti-detect** — Firefox fork + Playwright API; engine-level fingerprints for protected sites.
+- **Obscura for lightweight CDP** — Rust V8 browser (~30 MB), parallel scrape CLI, MCP tools for agents.
+- **agent-browser for IDE agents** — snapshot + ref CLI; token-efficient browser control from Cursor/Claude Code.
 
 # Browser Automation — Overview & Scraping Stack
 
@@ -20,7 +23,8 @@ In this vault it sits **above** the HTTP scraping layer:
 | Parse & normalize | [[Python — BeautifulSoup4 (bs4)]], [[Python — markdownify]] | Extract structure / Markdown |
 | Resilience | [[Python — tenacity]], [[Python — asyncio]] | Retries, concurrency |
 | **Browser / crawl** | This series | JS, auth, large crawls, AI extract |
-| Anti-bot (advanced) | camoufox, botright, botasaurus, proxies | Heavy protection — *TODO: Codes* |
+| Anti-bot (advanced) | [[Browser Automation — Camoufox]], proxies | Heavy fingerprint / bot checks |
+| Agent browser (CLI/CDP) | [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]] | Low-RAM CDP, IDE snapshot refs |
 
 ---
 
@@ -37,8 +41,13 @@ flowchart TD
     SCALE -->|no| LLM{Schema via LLM?}
     LLM -->|yes| AI[crawl4ai / ScrapeGraphAI]
     LLM -->|no| STEALTH{Anti-bot / layout drift?}
-    STEALTH -->|yes| SCRAPLING[Scrapling stealth]
-    STEALTH -->|no| PW[Playwright]
+    STEALTH -->|yes| HEAVY{Enterprise WAF?}
+    HEAVY -->|yes| CAMOU[Camoufox]
+    HEAVY -->|no| SCRAPLING[Scrapling stealth]
+    STEALTH -->|no| AGENT{AI agent driving browser?}
+    AGENT -->|CLI refs| ABCLI[agent-browser]
+    AGENT -->|CDP/MCP| OBSC[Obscura]
+    AGENT -->|no| PW[Playwright]
 ```
 
 ---
@@ -52,6 +61,9 @@ flowchart TD
 | **crawl4ai** | LLM-ready Markdown, RAG ingest, async crawl | [[Browser Automation — crawl4ai]] |
 | **ScrapeGraphAI** | Prompt/schema-driven extract graphs | [[Browser Automation — ScrapeGraphAI]] |
 | **Scrapling** | Adaptive selectors, stealth fetchers, MCP | [[Browser Automation — Scrapling]] |
+| **Camoufox** | Anti-detect Firefox, Playwright-compatible | [[Browser Automation — Camoufox]] |
+| **Obscura** | Rust CDP server, scrape CLI, MCP | [[Browser Automation — Obscura]] |
+| **agent-browser** | Snapshot-ref CLI for coding agents | [[Commands/CLI — agent-browser]] |
 
 ---
 
@@ -93,7 +105,8 @@ See [[AI]] RAG pipeline.
 | Full browser | [[Browser Automation — Playwright]] |
 | Distributed crawl | [[Browser Automation — Scrapy]] |
 | LLM extraction | [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]] |
-| Stealth / adaptive | [[Browser Automation — Scrapling]] |
+| Stealth / adaptive | [[Browser Automation — Scrapling]], [[Browser Automation — Camoufox]] |
+| Agent CDP / MCP | [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]] |
 | RAG downstream | [[AI — LangChain]], [[AI — LlamaIndex]] |
 
 ---
@@ -105,6 +118,7 @@ See [[AI]] RAG pipeline.
 3. Scale to many URLs with **Scrapy** — [[Browser Automation — Scrapy]]
 4. For RAG pipelines use **crawl4ai** — [[Browser Automation — crawl4ai]]
 5. When CSS breaks often try **Scrapling** or **ScrapeGraphAI**
+6. For bot walls try **Camoufox**; for agent tooling try **Obscura** MCP or **agent-browser**
 
 ---
 
@@ -115,11 +129,14 @@ See [[AI]] RAG pipeline.
 - [[Browser Automation — crawl4ai]]
 - [[Browser Automation — ScrapeGraphAI]]
 - [[Browser Automation — Scrapling]]
+- [[Browser Automation — Camoufox]]
+- [[Browser Automation — Obscura]]
+- [[Commands/CLI — agent-browser]]
+- [[AI]]
 - [[Python — httpx Package]]
 - [[Python — BeautifulSoup4 (bs4)]]
 - [[Python — markdownify]]
 - [[Python — tenacity]]
-- [[AI]]
 - [[Python Development]]
 
 ---

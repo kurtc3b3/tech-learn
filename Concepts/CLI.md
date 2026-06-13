@@ -61,6 +61,7 @@ flowchart LR
 | --- | --- | --- |
 | Git / GitHub / gh | [[Commands/CLI — Git & GitHub]] | [[Linting — pre-commit]], PR workflow |
 | Changelog / releases | [[Commands/CLI — git-cliff]] | Conventional Commits, tags |
+| Agent browser (IDE) | [[Commands/CLI — agent-browser]] | [[AI]], [[Browser Automation]] |
 | Docker / docker-compose | [[Commands/CLI — Docker & Compose]] | [[K8S]], [[ML — BentoML]] images |
 | Postman / Newman | [[Commands/CLI — Newman & Postman]] | [[API - FastAPI]], [[Unit Testing - pytest]] |
 | Load testing (oha, hey, JMeter) | [[Commands/Load Testing — oha]], [[Commands/Load Testing — hey]], [[Commands/Load Testing — JMeter]] | [[Load Testing]] |
@@ -94,6 +95,7 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 | Save history / collaborate? | [[Commands/CLI — Git & GitHub]] |
 | Open PR from terminal? | `gh pr create` → [[Commands/CLI — Git & GitHub]] |
 | Generate release changelog? | [[Commands/CLI — git-cliff]] |
+| Browser automation for AI agent in IDE? | [[Commands/CLI — agent-browser]] |
 | Run app + Postgres locally? | [[Commands/CLI — Docker & Compose]] |
 | Test REST collection in CI? | [[Commands/CLI — Newman & Postman]] |
 | Quick HTTP bench / load smoke? | [[Commands/Load Testing — oha]], [[Load Testing]] |
@@ -137,6 +139,7 @@ docker build → push → kubectl apply   # deploy via [[K8S]]
 
 - [[Commands/CLI — Git & GitHub]]
 - [[Commands/CLI — git-cliff]]
+- [[Commands/CLI — agent-browser]]
 - [[Commands/CLI — Docker & Compose]]
 - [[Commands/CLI — Newman & Postman]]
 

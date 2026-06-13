@@ -6,6 +6,7 @@
 - **MCP vs A2A vs ACP** — MCP connects LLMs to tools/data; A2A connects agents to agents; ACP connects coding agents to editors (stdio JSON-RPC).
 - **ADK (Google)** — code-first agents + Workflow graphs; deploy on [[GCP]]; pairs with Gemini and [[AI — A2A]].
 - **Evaluate before shipping** — use RAGAS for retrieval quality; Mem0 (or framework memory) for long-term user context.
+- **Browser agents need a control surface** — CLI refs ([[Commands/CLI — agent-browser]]) or MCP ([[Browser Automation — Obscura]]); stealth fetch via [[Browser Automation — Camoufox]] when sites block bots.
 
 # AI — Overview & Stack Map
 
@@ -43,7 +44,7 @@ flowchart LR
 
 | Stage | Role | Notes in this vault |
 | --- | --- | --- |
-| Fetch / scrape | Get raw content | [[Python — httpx Package]], [[Python — markdownify]] |
+| Fetch / scrape | Get raw content | [[Python — httpx Package]], [[Browser Automation — crawl4ai]], [[Browser Automation — Camoufox]] |
 | Parse | PDF/HTML → structured text | [[AI — Docling]], [[AI — MegaParse]] |
 | Orchestrate | Chain steps, agents, tools | [[AI — LangChain]], [[AI — LangGraph]] |
 | Index / retrieve | Embeddings + search | [[AI — LlamaIndex]], [[AI — Haystack]], vector stores |
@@ -116,6 +117,9 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 | Tool standard          | MCP                           |
 | Agent interoperability | A2A                           |
 | IDE agents             | ACP                           |
+| Browser control (CLI)  | [[Commands/CLI — agent-browser]] |
+| Browser control (MCP)  | [[Browser Automation — Obscura]] |
+| Stealth browser fetch  | [[Browser Automation — Camoufox]] |
 | RAG evaluation         | RAGAS                         |
 | Long-term memory       | Mem0                          |
 | Cloud deploy (Google)  | ADK + [[GCP]]                 |
@@ -134,7 +138,8 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 5. **Teams** — [[AI — CrewAI]] or [[AI — Agno]]
 6. **Google stack** — [[AI — ADK]] + [[GCP]] when standardizing on Gemini and Cloud Run
 7. **Protocols** — [[AI — MCP]] for tools; [[AI — A2A]] if agents call remote agents
-8. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
+8. **Browser agents** — [[Commands/CLI — agent-browser]] or [[Browser Automation — Obscura]] MCP
+9. **Quality** — [[AI — RAGAS]] + [[AI — Mem0]] for memory-heavy apps
 
 See also [[Python Development]] Phase 7 and [[NLP]].
 
@@ -174,6 +179,13 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 - [[AI — MCP]]
 - [[AI — ACP]]
 - [[AI — A2A]]
+
+### Browser agents & stealth
+
+- [[Commands/CLI — agent-browser]]
+- [[Browser Automation — Obscura]]
+- [[Browser Automation — Camoufox]]
+- [[Browser Automation]] — full scraping stack
 
 ### Evaluation & memory
 
