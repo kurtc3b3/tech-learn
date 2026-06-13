@@ -178,12 +178,16 @@ Bypass only when intentional: `git commit --no-verify` (discouraged on shared re
 git checkout -b docs/my-series
 # edit notes...
 git add Concepts/ Codes/
-git commit -m "Add docs for X"
+git commit -m "docs: add notes for X"
 git push -u origin HEAD
-gh pr create --title "..." --body "..."
+gh pr create --title "docs: add notes for X" --body "..."
 gh pr merge --squash
 git switch main && git pull origin main
+git tag v1.2.0 && git push origin v1.2.0   # optional release
+git-cliff --latest                          # [[Commands/CLI — git-cliff]]
 ```
+
+Use **Conventional Commits** in PR titles when squash merging so git-cliff produces clean release notes.
 
 ---
 
@@ -219,6 +223,7 @@ gh pr merge --squash
 - [[Linting — pre-commit]]
 - [[Python — Copier]]
 - [[Python Development]]
+- [[Commands/CLI — git-cliff]]
 - [[Commands/CLI — Docker & Compose]]
 - [[Unit Testing - pytest]]
 
