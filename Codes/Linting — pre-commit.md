@@ -5,17 +5,20 @@
 Use pre-commit when:
 
 - The team should not rely on "remember to run Ruff"
-- You want [[Linting — Ruff]], [[Linting — mypy]], and [[Unit Testing - pytest]] gated on `git commit`
+- You want [[Linting — Ruff]], [[Linting — mypy]], **Gitleaks**, **Bandit**, and [[Unit Testing - pytest]] gated on `git commit`
 - Multiple languages/tools need orchestration (Python, YAML, Docker)
 - CI should mirror local hooks exactly
 
 ```bash
 pip install pre-commit
+# Optional standalone tools (if not using Ruff for imports/security):
+# pip install isort bandit
+# gitleaks — installed by pre-commit hook env, or: brew install gitleaks
 # or
 uv add --dev pre-commit
 ```
 
-Overview: [[Linting]]. Typical stack: Ruff → mypy → pytest hooks.
+Overview: [[Linting]]. Typical stack: Gitleaks → Ruff (or isort) → Bandit → mypy → pytest hooks.
 
 ---
 
@@ -69,12 +72,32 @@ repos:
         args: [--maxkb=1000]
       - id: check-merge-conflict
 
+  # Secrets — scan staged files before commit
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.4
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
+
+  # Security — Python SAST (complements Ruff S* rules; see Bandit section)
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.3
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+
+  # Import sort — optional if Ruff I rules are enabled; see isort section
+  # - repo: https://github.com/PyCQA/isort
+  #   rev: 6.0.1
+  #   hooks:
+  #     - id: isort
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.13.0
@@ -97,7 +120,128 @@ repos:
         stages: [pre-push]    # keep commits fast; test on push
 ```
 
+Add Bandit config to `pyproject.toml`:
+
+```toml
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
+skips = ["B101"]   # assert_used — allow in tests via exclude_dirs
+```
+
 See [[Linting — Ruff]], [[Linting — mypy]], [[Unit Testing - pytest]].
+
+---
+
+## Gitleaks (Secret Scanning)
+
+**Gitleaks** scans staged files for API keys, tokens, passwords, and private keys before they reach Git. Run it **early** in the hook list so commits fail fast on accidental secrets.
+
+```yaml
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+```
+
+Manual scan (including history):
+
+```bash
+gitleaks detect --source . --verbose
+gitleaks detect --log-opts="HEAD~10..HEAD"   # recent commits
+pre-commit run gitleaks --all-files
+```
+
+| Practice | Why |
+| --- | --- |
+| `.gitignore` `.env`, `*.pem` | Never stage secrets |
+| [[Python — python-dotenv]] locally | Env vars, not hardcoded keys |
+| CI + GitHub secret scanning | Second line after pre-commit |
+| Custom rules | `.gitleaks.toml` for project-specific patterns |
+
+> [!warning] Gitleaks blocks the commit Hook runs on **staged** content; rotate any key that was ever pushed even if later removed.
+
+Pair with [[Commands/CLI — Git & GitHub]] — never use `--no-verify` to bypass secret scans unless you are certain the finding is a false positive.
+
+---
+
+## Bandit (Python Security)
+
+**Bandit** is a Python **SAST** linter — finds `eval`, hardcoded passwords, unsafe YAML load, weak crypto, etc. Complements [[Linting — Ruff]] (optional `S` rules) with deeper security-focused checks.
+
+```yaml
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.3
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+```
+
+```toml
+# pyproject.toml
+[tool.bandit]
+exclude_dirs = ["tests", "migrations", ".venv"]
+skips = ["B101"]   # assert in tests — or exclude tests dir only
+```
+
+CLI:
+
+```bash
+bandit -r src -c pyproject.toml
+uv run bandit -r src
+```
+
+| Ruff `S` rules | Bandit hook |
+| --- | --- |
+| Fast; same config as lint | Dedicated security report |
+| Good default in one tool | Stricter / more rules for security reviews |
+| `--fix` on some issues | Report-only; fix manually |
+
+Use **both** on sensitive backends ([[API - FastAPI]], [[ORM - SQLAlchemy]] with raw SQL) or **Ruff `S` only** for minimal overhead.
+
+---
+
+## isort (Import Sorting)
+
+**isort** sorts and groups imports (stdlib → third-party → first-party). In this vault, **Ruff `I` rules** usually replace a separate isort hook — enable in [[Linting — Ruff]]:
+
+```toml
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["myapp"]
+```
+
+Add a **standalone isort hook** only when:
+
+- The project does not use Ruff yet
+- You need isort-specific options not mirrored in Ruff
+- A legacy repo already standardizes on isort config
+
+```yaml
+  - repo: https://github.com/PyCQA/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+```
+
+```toml
+# pyproject.toml (isort-only projects)
+[tool.isort]
+profile = "black"
+known_first_party = ["myapp"]
+line_length = 88
+```
+
+```bash
+isort .
+isort . --check --diff
+pre-commit run isort --all-files
+```
+
+> [!tip] Do not run isort and Ruff import fix on the same commit Pick one — duplicate hooks fight each other. Default here: **Ruff only**.
 
 ---
 
@@ -105,7 +249,7 @@ See [[Linting — Ruff]], [[Linting — mypy]], [[Unit Testing - pytest]].
 
 | Stage | When | Typical hooks |
 | --- | --- | --- |
-| `pre-commit` (default) | `git commit` | Ruff, whitespace, yaml |
+| `pre-commit` (default) | `git commit` | Gitleaks, Ruff, Bandit, isort, yaml |
 | `pre-push` | `git push` | pytest, slow integration |
 | `commit-msg` | After message entered | Conventional commit lint |
 | `manual` | `pre-commit run --hook-stage manual` | On demand |
@@ -265,6 +409,9 @@ pre-commit run --all-files
 | Slow commits | Move pytest to `pre-push` |
 | Hook env ≠ project env | Use `language: system` + `uv run` |
 | Unpinned `rev: master` | Pin tags/SHAs for reproducibility |
+| isort + Ruff both fix imports | Use Ruff `I` only, or isort only |
+| Secret false positive | `.gitleaks.toml` allowlist; never blanket `--no-verify` |
+| Bandit noisy on tests | `exclude_dirs = ["tests"]` in `[tool.bandit]` |
 
 ---
 
@@ -275,6 +422,8 @@ pre-commit run --all-files
 | Install hooks | `pre-commit install` |
 | Run all hooks | `pre-commit run --all-files` |
 | Run one hook | `pre-commit run ruff --all-files` |
+| Run Gitleaks only | `pre-commit run gitleaks --all-files` |
+| Run Bandit only | `pre-commit run bandit --all-files` |
 | Update versions | `pre-commit autoupdate` |
 | Skip hook | `SKIP=mypy git commit ...` |
 | Config file | `.pre-commit-config.yaml` |
@@ -285,4 +434,4 @@ pre-commit run --all-files
 
 ## Tags
 
-#python #pre-commit #git-hooks #linting #ci #code-quality #ruff #mypy #backend
+#python #pre-commit #git-hooks #linting #ci #code-quality #ruff #mypy #gitleaks #bandit #isort #security #backend
