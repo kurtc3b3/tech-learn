@@ -311,9 +311,10 @@ See [[AI]] for the full stack map, learning path, and all Codes notes.
 | Area | References |
 | --- | --- |
 | Overview & RAG pipeline | [[AI]] |
-| Orchestration | [[AI — LangChain]], [[AI — LangGraph]], [[AI — Haystack]], [[AI — LlamaIndex]] |
+| Orchestration | [[AI — LangChain]], [[AI — LangGraph]], [[AI — Haystack]], [[AI — LlamaIndex]], [[AI — Agent Framework]] |
 | Document parsing | [[AI — Docling]], [[AI — MegaParse]] |
 | Vector stores | [[AI — Chroma]], [[AI — FAISS]], [[AI — Qdrant]], [[AI — Milvus]] |
+| Microsoft agents (Foundry) | [[AI — Agent Framework]] |
 | Google agents (ADK) | [[AI — ADK]] |
 | Multi-agent / typed agents | [[AI — CrewAI]], [[AI — Agno]], [[AI — Pydantic AI]], [[AI — DSPy]] |
 | Protocols | [[AI — MCP]], [[AI — A2A]], [[AI — ACP]] |
