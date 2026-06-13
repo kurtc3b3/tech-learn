@@ -2,6 +2,7 @@
 
 - **Tabular ML default stack** — [[ML — pandas]] + [[ML — NumPy]] + [[ML — scikit-learn]] for most classical problems; add [[ML — XGBoost]] or [[ML — LightGBM]] for performance.
 - **Track experiments** — [[ML — MLflow]] for params, metrics, artifacts, and model registry before production.
+- **Warehouse features with dbt** — SQL transforms in **BigQuery** ([[ML — dbt]]) for staging tables and ML-ready marts before pandas/sklearn.
 - **Version data & pipelines** — [[DVC]] / [[ML — DVC]] for datasets, `dvc.yaml` stages, and remote storage alongside Git.
 - **Serve models** — [[ML — BentoML]] or [[ML — Seldon]] behind [[API - FastAPI]] / Kubernetes; not raw pickle endpoints.
 - **Explain & tune** — [[ML — SHAP]] for interpretability, [[ML — Optuna]] for hyperparameters, [[ML — Boruta]] for feature selection.
@@ -20,7 +21,7 @@ Typical outcomes:
 - **Classification / regression** on tabular data (sklearn, boosting libraries)
 - **Time series forecasting** (Prophet, sklearn)
 - **Deep learning** (PyTorch)
-- **MLOps** — experiment tracking (MLflow), feature store (Feast), deployment (BentoML, Seldon)
+- **MLOps** — experiment tracking (MLflow), feature store (Feast), warehouse transforms (dbt), deployment (BentoML, Seldon)
 - **Analysis & viz** — pandas, NumPy, matplotlib, seaborn
 
 ---
@@ -29,7 +30,9 @@ Typical outcomes:
 
 ```mermaid
 flowchart LR
-    DATA[Raw data] --> PREP[pandas / NumPy / scipy]
+    RAW[Raw in warehouse] --> DBT[dbt SQL models]
+    DBT --> PREP[pandas / NumPy / scipy]
+    DATA[In-app / files] --> PREP
     PREP --> FEAT[Features + Boruta]
     FEAT --> TRAIN[sklearn / XGB / LGBM / PyTorch]
     TRAIN --> TUNE[Optuna]
@@ -58,6 +61,7 @@ flowchart LR
 | **Explainability** | SHAP | [[ML — SHAP]] |
 | **Graphs** | NetworkX | [[ML — NetworkX]] |
 | **Feature store** | Feast | [[ML — Feast]] |
+| **Warehouse transforms (ELT)** | dbt | [[ML — dbt]] |
 | **Experiment tracking** | MLflow | [[ML — MLflow]] |
 | **Data & pipeline versioning** | DVC | [[DVC]], [[ML — DVC]] |
 | **Model serving** | BentoML, Seldon | [[ML — BentoML]], [[ML — Seldon]] |
@@ -77,6 +81,7 @@ flowchart LR
 | Why did model predict X?    | [[ML — SHAP]]         | Per-feature dashboards              |
 | Reproducible experiments    | [[ML — MLflow]]       | Registry + promote stages           |
 | Version datasets & pipelines | [[DVC]]              | [[ML — DVC]] + Git + remote         |
+| SQL feature tables in BigQuery | [[ML — dbt]]       | [[GCP]] + [[ORCHESTRATION — Airflow]] |
 | Online features             | [[ML — Feast]]        | Point-in-time joins                 |
 | REST model API              | [[ML — BentoML]]      | [[ML — Seldon]] on K8s              |
 | EDA plots                   | [[ML — seaborn]]      | [[ML — matplotlib]] for custom      |
@@ -97,12 +102,13 @@ flowchart LR
 ## Recommended Learning Path
 
 1. **Foundation** — [[ML — NumPy]], [[ML — pandas]], [[ML — matplotlib]]
-2. **First model** — [[ML — scikit-learn]] pipeline end-to-end
-3. **Boost performance** — [[ML — XGBoost]] or [[ML — LightGBM]]
-4. **Tune & explain** — [[ML — Optuna]], [[ML — SHAP]]
-5. **Data versioning** — [[DVC]] → [[ML — DVC]] pipelines with remote storage
-6. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
-7. **Scale features** — [[ML — Feast]] when teams share feature definitions
+2. **Warehouse prep (optional)** — [[ML — dbt]] on [[GCP]] BigQuery for clean marts
+3. **First model** — [[ML — scikit-learn]] pipeline end-to-end
+4. **Boost performance** — [[ML — XGBoost]] or [[ML — LightGBM]]
+5. **Tune & explain** — [[ML — Optuna]], [[ML — SHAP]]
+6. **Data versioning** — [[DVC]] → [[ML — DVC]] pipelines with remote storage
+7. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
+8. **Scale features** — [[ML — Feast]] when teams share feature definitions
 
 Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]]. Cluster deployment: [[K8S]] — [[Codes/K8S — Workloads]], [[Commands/K8S — kubectl & Minikube]].
 
@@ -136,6 +142,7 @@ Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Proce
 
 ### MLOps & serving
 
+- [[ML — dbt]]
 - [[DVC]]
 - [[ML — DVC]]
 - [[ML — MLflow]]
@@ -151,6 +158,7 @@ Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Proce
 - [[API - FastAPI]]
 - [[K8S]]
 - [[ORCHESTRATION]]
+- [[GCP]]
 - [[Python Development]]
 
 ---

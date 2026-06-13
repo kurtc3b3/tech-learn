@@ -27,7 +27,7 @@ Train models with [[ML — scikit-learn]] on materialized feature tables; track 
 | Experiment tracking | [[ML — MLflow]] | Model + metrics, not features |
 | Ad-hoc EDA | [[ML — pandas]] | Before promoting to Feast |
 | Real-time-only cache | Redis alone | No registry / versioning |
-| Batch feature scripts | dbt / Spark | Feast consumes outputs |
+| Batch feature scripts | [[ML — dbt]] / Spark | Feast consumes outputs |
 | Model serving | [[ML — BentoML]], [[ML — Seldon]] | Load features at request time |
 
 ---
