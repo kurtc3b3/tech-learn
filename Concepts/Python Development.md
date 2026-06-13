@@ -334,6 +334,7 @@ See [[Machine Learning]] for the full stack map, lifecycle, and all Codes notes.
 | Selection & tuning | [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]] |
 | Graph features | [[ML — NetworkX]] |
 | Data & pipeline versioning | [[DVC]], [[ML — DVC]] |
+| Warehouse SQL (BigQuery) | [[ML — dbt]] |
 | Experiment tracking | [[ML — MLflow]] |
 | Feature store | [[ML — Feast]] |
 | Model serving | [[ML — BentoML]], [[ML — Seldon]] |
@@ -512,6 +513,7 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[ML — scikit-learn]], [[ML — XGBoost]], [[ML — LightGBM]], [[ML — H2O]]
 - [[ML — PyTorch]], [[ML — Prophet]], [[ML — NetworkX]]
 - [[ML — Boruta]], [[ML — Optuna]], [[ML — SHAP]]
+- [[ML — dbt]]
 - [[ML — MLflow]], [[ML — Feast]], [[ML — BentoML]], [[ML — Seldon]]
 
 ### Natural language processing
@@ -589,6 +591,7 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Tabular ML baseline?           | [[ML — scikit-learn]] + [[ML — pandas]]                          |
 | Boost tabular performance?     | [[ML — XGBoost]] or [[ML — LightGBM]]                            |
 | Track experiments?             | [[ML — MLflow]]                                                  |
+| SQL marts in BigQuery for ML?  | [[ML — dbt]]                                                     |
 | Serve sklearn/PyTorch model?   | [[ML — BentoML]] or [[ML — Seldon]]                              |
 | Tune hyperparameters?          | [[ML — Optuna]]                                                  |
 | Explain predictions?           | [[ML — SHAP]]                                                    |

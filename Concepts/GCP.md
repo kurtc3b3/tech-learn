@@ -27,7 +27,7 @@
 | **Cloud Build** | CI build from repo | With [[Commands/CLI — Git & GitHub]] |
 | **Artifact Registry** | Docker / package images | Image store for Run / GKE |
 | **GCS** | Object storage | Artifacts, static files, ML data |
-| **BigQuery** | Analytics warehouse | SQL at scale, [[ML — Feast]] offline |
+| **BigQuery** | Analytics warehouse | SQL at scale; transforms via [[ML — dbt]]; [[ML — Feast]] offline |
 | **Cloud SQL** | Managed PostgreSQL/MySQL | Prod DB for [[ORM - SQLAlchemy]] |
 | **Firestore** | Document NoSQL | Mobile/web sync, flexible docs |
 | **Dataflow** | Beam stream/batch | Large ETL |
@@ -72,7 +72,7 @@ flowchart TD
 | Relational OLTP | Cloud SQL | Postgres in [[Commands/CLI — Docker & Compose]] |
 | Document store | Firestore | [[DB — MongoDB]] |
 | Object/files | GCS | S3-compatible patterns |
-| Analytics SQL | BigQuery | Warehouse, not app OLTP |
+| Analytics SQL | BigQuery | Warehouse, not app OLTP; build marts with [[ML — dbt]] |
 | Stream/batch ETL | Dataflow | [[Processing — Celery]] chains (smaller scale) |
 | Spark jobs | Dataproc | Self-hosted Spark |
 | Workflow DAGs | Composer | [[ORCHESTRATION — Airflow]] |
