@@ -25,7 +25,6 @@ In this vault it sits **above** the HTTP scraping layer:
 | **Browser / crawl** | This series | JS, auth, large crawls, AI extract |
 | Anti-bot (advanced) | [[Browser Automation — Camoufox]], proxies | Heavy fingerprint / bot checks |
 | Agent browser (CLI/CDP) | [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]] | Low-RAM CDP, IDE snapshot refs |
-| NL browser (TypeScript) | [[Browser Automation — Auto-Browse]] | Playwright + natural language |
 
 ---
 
@@ -65,7 +64,6 @@ flowchart TD
 | **Camoufox** | Anti-detect Firefox, Playwright-compatible | [[Browser Automation — Camoufox]] |
 | **Obscura** | Rust CDP server, scrape CLI, MCP | [[Browser Automation — Obscura]] |
 | **agent-browser** | Snapshot-ref CLI for coding agents | [[Commands/CLI — agent-browser]] |
-| **Auto-Browse** | NL commands in Playwright (TS) | [[Browser Automation — Auto-Browse]] |
 
 ---
 
@@ -109,7 +107,6 @@ See [[AI]] RAG pipeline.
 | LLM extraction | [[Browser Automation — crawl4ai]], [[Browser Automation — ScrapeGraphAI]] |
 | Stealth / adaptive | [[Browser Automation — Scrapling]], [[Browser Automation — Camoufox]] |
 | Agent CDP / MCP | [[Browser Automation — Obscura]], [[Commands/CLI — agent-browser]] |
-| NL browser (TS) | [[Browser Automation — Auto-Browse]] |
 | RAG downstream | [[AI — LangChain]], [[AI — LlamaIndex]] |
 
 ---
@@ -122,7 +119,6 @@ See [[AI]] RAG pipeline.
 4. For RAG pipelines use **crawl4ai** — [[Browser Automation — crawl4ai]]
 5. When CSS breaks often try **Scrapling** or **ScrapeGraphAI**
 6. For bot walls try **Camoufox**; for agent tooling try **Obscura** MCP or **agent-browser**
-7. For NL Playwright tests (TypeScript) add **Auto-Browse**
 
 ---
 
@@ -136,7 +132,6 @@ See [[AI]] RAG pipeline.
 - [[Browser Automation — Camoufox]]
 - [[Browser Automation — Obscura]]
 - [[Commands/CLI — agent-browser]]
-- [[Browser Automation — Auto-Browse]]
 - [[AI]]
 - [[Python — httpx Package]]
 - [[Python — BeautifulSoup4 (bs4)]]

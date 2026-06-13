@@ -473,7 +473,6 @@ Grouped for lookup; each link is the **how-to** for that library.
 - [[Browser Automation — Camoufox]]
 - [[Browser Automation — Obscura]]
 - [[Commands/CLI — agent-browser]]
-- [[Browser Automation — Auto-Browse]]
 
 ### Scraping & content (HTTP layer)
 
@@ -594,7 +593,6 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Adaptive / stealth scraping?   | [[Browser Automation — Scrapling]]                               |
 | Heavy anti-bot / fingerprint?  | [[Browser Automation — Camoufox]]                                |
 | Agent browser (CLI / MCP)?     | [[Commands/CLI — agent-browser]], [[Browser Automation — Obscura]] |
-| NL Playwright (TypeScript)?    | [[Browser Automation — Auto-Browse]]                             |
 | Tabular ML baseline?           | [[ML — scikit-learn]] + [[ML — pandas]]                          |
 | Boost tabular performance?     | [[ML — XGBoost]] or [[ML — LightGBM]]                            |
 | Track experiments?             | [[ML — MLflow]]                                                  |

@@ -210,7 +210,6 @@ agent-browser open example.com && \
 - [[Browser Automation — Playwright]]
 - [[Browser Automation — Obscura]]
 - [[Browser Automation — Camoufox]]
-- [[Browser Automation — Auto-Browse]]
 - [[AI — MCP]]
 - [[AI]]
 - [[CLI]]
