@@ -29,7 +29,6 @@ Site: [agent-browser.dev](https://agent-browser.dev) · Repo: [vercel-labs/agent
 | IDE agent shell loop | **agent-browser** | Refs, compact snapshot, skills |
 | Python stealth scrape | [[Browser Automation — Camoufox]] | Anti-detect Firefox |
 | MCP browser tools (CSS) | [[Browser Automation — Obscura]] | `browser_click` by selector |
-| NL test authoring | [[Browser Automation — Auto-Browse]] | TypeScript `auto()` |
 
 **Architecture:** Rust CLI → native daemon → **CDP** → Chrome for Testing. No Playwright install required for end users.
 
