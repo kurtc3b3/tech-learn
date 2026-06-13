@@ -2,7 +2,8 @@
 
 - **Ruff first** — one fast tool for linting and formatting; replaces Flake8, isort, pyupgrade, and Black for most Python projects.
 - **mypy second** — catches type errors that Ruff cannot; pair with [[Python — typing]] and [[Python — Pydantic]].
-- **pre-commit last mile** — runs Ruff, mypy, and tests automatically before every commit so bad code never lands locally.
+- **pre-commit last mile** — runs Gitleaks, Ruff, Bandit, mypy, and tests automatically before every commit.
+- **Secrets & security** — **Gitleaks** blocks committed keys; **Bandit** flags unsafe Python patterns (Ruff `S` rules overlap).
 - **Configure in `pyproject.toml`** — single source of truth shared by local dev, pre-commit, and CI.
 
 # Linting — Overview & Code Quality Stack
@@ -15,7 +16,9 @@ It complements [[Unit Testing - pytest]]:
 
 | Layer | Catches | When |
 | --- | --- | --- |
+| **Gitleaks** | API keys, tokens in staged files | Commit |
 | **Ruff** | Style, imports, many bug patterns | Edit / commit |
+| **Bandit** | Python security antipatterns | Commit |
 | **mypy** | Type mismatches | Edit / commit / CI |
 | **pytest** | Wrong behavior | Commit / CI |
 | **pre-commit** | Orchestrates all of the above | Every `git commit` |
@@ -44,10 +47,14 @@ flowchart LR
     DEV[Write code] --> EDITOR[Editor: Ruff LSP]
     DEV --> COMMIT[git commit]
     COMMIT --> PC[pre-commit hooks]
+    PC --> LEAK[Gitleaks]
     PC --> RUFF[Ruff check + format]
+    PC --> BAND[Bandit]
     PC --> MYPY[mypy]
     PC --> TEST[pytest]
-    RUFF --> OK{Pass?}
+    LEAK --> OK{Pass?}
+    RUFF --> OK
+    BAND --> OK
     MYPY --> OK
     TEST --> OK
     OK -->|yes| REPO[Commit lands]
@@ -60,9 +67,13 @@ flowchart LR
 
 | Tool | Role | Replaces (mostly) |
 | --- | --- | --- |
+| **Gitleaks** | Secret scanning on commit | Manual grep for keys |
 | [[Linting — Ruff]] | Linter + formatter | Flake8, isort, Black, pyupgrade, autoflake |
+| **Bandit** | Python security linter | Ad-hoc security review |
 | [[Linting — mypy]] | Static type checker | Manual type review |
 | [[Linting — pre-commit]] | Git hook runner | "Remember to run lint" |
+
+Ruff **`I` rules** replace a standalone **isort** hook in most projects — see [[Linting — pre-commit]].
 
 Ruff does **not** replace mypy — they overlap slightly on typing syntax but mypy performs deep type inference.
 
@@ -76,7 +87,7 @@ name = "my-app"
 requires-python = ">=3.11"
 
 [dependency-groups]
-dev = ["ruff>=0.8", "mypy>=1.13", "pre-commit>=4", "pytest>=8"]
+dev = ["ruff>=0.8", "mypy>=1.13", "pre-commit>=4", "pytest>=8", "bandit[toml]>=1.8"]
 
 [tool.ruff]
 target-version = "py311"
@@ -92,7 +103,12 @@ quote-style = "double"
 python_version = "3.11"
 strict = true
 plugins = ["pydantic.mypy"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
 ```
+
+Hook config (Gitleaks, Bandit, optional isort): [[Linting — pre-commit]].
 
 Details per tool: [[Linting — Ruff]], [[Linting — mypy]].
 
@@ -137,8 +153,10 @@ pre-commit can also run in CI: `pre-commit run --all-files` — ensures hook con
 
 | Concern | Tool in this vault |
 | --- | --- |
-| Style & imports | [[Linting — Ruff]] |
+| Secret leaks | Gitleaks (pre-commit) — [[Linting — pre-commit]] |
+| Style & imports | [[Linting — Ruff]] (or isort hook if not using Ruff `I`) |
 | Formatting | [[Linting — Ruff]] (`ruff format`) |
+| Security (Python) | Bandit + optional Ruff `S` — [[Linting — pre-commit]] |
 | Type safety | [[Linting — mypy]] + [[Python — typing]] |
 | Git automation | [[Linting — pre-commit]] |
 | Runtime validation | [[Python — Pydantic]] |
@@ -151,8 +169,10 @@ pre-commit can also run in CI: `pre-commit run --all-files` — ensures hook con
 
 | Question | Answer |
 | --- | --- |
-| Fix import order? | `ruff check --fix` — [[Linting — Ruff]] |
+| Fix import order? | `ruff check --fix` — [[Linting — Ruff]] (preferred over isort hook) |
 | Format code? | `ruff format` — not Black |
+| Block committed secrets? | Gitleaks — [[Linting — pre-commit]] |
+| Find unsafe Python (eval, weak crypto)? | Bandit — [[Linting — pre-commit]] |
 | Find `Optional` misuse? | mypy — [[Linting — mypy]] |
 | Run checks on every commit? | pre-commit — [[Linting — pre-commit]] |
 | FastAPI / Pydantic types? | mypy + `pydantic.mypy` plugin |
@@ -176,4 +196,4 @@ pre-commit can also run in CI: `pre-commit run --all-files` — ensures hook con
 
 ## Tags
 
-#linting #ruff #mypy #pre-commit #code-quality #python #ci #backend
+#linting #ruff #mypy #pre-commit #gitleaks #bandit #isort #code-quality #python #ci #backend #security
