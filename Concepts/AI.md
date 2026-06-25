@@ -1,6 +1,7 @@
 **Key Points:**
 
 - **RAG is a pipeline, not a library** — ingest → chunk → embed → store → retrieve → generate; different tools own different stages.
+- **Transformer theory** — [[Transformers — Attention & Architecture]] explains attention, encoder/decoder, and GPT vs BERT before diving into frameworks.
 - **LangChain + LangGraph** — default orchestration stack for composable chains and stateful multi-step agents.
 - **Vector DB choice** — Chroma for local/dev, Qdrant/Milvus for production scale, FAISS for in-process search.
 - **MCP vs A2A vs ACP** — MCP connects LLMs to tools/data; A2A connects agents to agents; ACP connects coding agents to editors (stdio JSON-RPC).
@@ -135,6 +136,7 @@ Framework wrappers: [[AI — LlamaIndex]], [[AI — LangChain]], [[AI — Haysta
 
 ## Recommended Learning Path
 
+0. **Concept (optional)** — [[Transformers — Attention & Architecture]] → [[Deep Learning — Theory]] for LLM foundations
 1. **Basics** — [[AI — LangChain]] (models, prompts, tools, simple RAG)
 2. **Stateful agents** — [[AI — LangGraph]]
 3. **Vectors** — [[AI — Chroma]] locally, then [[AI — Qdrant]] for production patterns
@@ -202,6 +204,14 @@ See also [[Python Development]] Phase 7 and [[NLP]].
 ### Classical NLP (hybrid pipelines)
 
 - [[NLP]] — spaCy, NLTK, Gensim for preprocessing and metadata before RAG
+
+### ML & DL theory (LLM foundations)
+
+- [[Transformers — Attention & Architecture]]
+- [[Deep Learning — Theory]]
+- [[Machine Learning — Algorithms Theory]]
+- [[Statistics — Theory & A/B Testing]]
+- [[Machine Learning]]
 
 ### Connected vault notes
 

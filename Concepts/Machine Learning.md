@@ -1,5 +1,6 @@
 **Key Points:**
 
+- **Theory first when learning** — [[Statistics — Theory & A/B Testing]], [[Machine Learning — Algorithms Theory]], [[Deep Learning — Theory]], [[Transformers — Attention & Architecture]] for conceptual depth; Codes notes for tooling.
 - **Tabular ML default stack** — [[ML — pandas]] + [[ML — NumPy]] + [[ML — scikit-learn]] for most classical problems; add [[ML — XGBoost]] or [[ML — LightGBM]] for performance.
 - **Track experiments** — [[ML — MLflow]] for params, metrics, artifacts, and model registry before production.
 - **Warehouse features with dbt** — SQL transforms in **BigQuery** ([[ML — dbt]]) for staging tables and ML-ready marts before pandas/sklearn.
@@ -23,6 +24,29 @@ Typical outcomes:
 - **Deep learning** (PyTorch)
 - **MLOps** — experiment tracking (MLflow), feature store (Feast), warehouse transforms (dbt), deployment (BentoML, Seldon)
 - **Analysis & viz** — pandas, NumPy, matplotlib, seaborn
+
+---
+
+## ML Theory (Concept Notes)
+
+Concept-only cheatsheets — algorithms, statistics, neural nets, transformers. Implementation stays in **Codes/ML —** notes.
+
+| Topic | Note |
+| --- | --- |
+| Statistics & A/B testing | [[Statistics — Theory & A/B Testing]] |
+| Regression, trees, ensembles | [[Machine Learning — Algorithms Theory]] |
+| ANN, CNN, RNN, LSTM | [[Deep Learning — Theory]] |
+| Attention & transformers | [[Transformers — Attention & Architecture]] |
+
+```mermaid
+flowchart LR
+    STAT[Statistics and A/B] --> MLALG[ML Algorithms Theory]
+    MLALG --> DL[Deep Learning Theory]
+    DL --> TR[Transformers]
+    MLALG --> TOOLS[sklearn XGBoost MLflow]
+    DL --> PYTORCH[ML — PyTorch]
+    TR --> AI[AI RAG agents]
+```
 
 ---
 
@@ -101,20 +125,28 @@ flowchart LR
 
 ## Recommended Learning Path
 
-1. **Foundation** — [[ML — NumPy]], [[ML — pandas]], [[ML — matplotlib]]
-2. **Warehouse prep (optional)** — [[ML — dbt]] on [[GCP]] BigQuery for clean marts
-3. **First model** — [[ML — scikit-learn]] pipeline end-to-end
-4. **Boost performance** — [[ML — XGBoost]] or [[ML — LightGBM]]
-5. **Tune & explain** — [[ML — Optuna]], [[ML — SHAP]]
-6. **Data versioning** — [[DVC]] → [[ML — DVC]] pipelines with remote storage
-7. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
-8. **Scale features** — [[ML — Feast]] when teams share feature definitions
+1. **Theory (optional but recommended)** — [[Statistics — Theory & A/B Testing]] → [[Machine Learning — Algorithms Theory]] → [[Deep Learning — Theory]] → [[Transformers — Attention & Architecture]]
+2. **Foundation** — [[ML — NumPy]], [[ML — pandas]], [[ML — matplotlib]]
+3. **Warehouse prep (optional)** — [[ML — dbt]] on [[GCP]] BigQuery for clean marts
+4. **First model** — [[ML — scikit-learn]] pipeline end-to-end
+5. **Boost performance** — [[ML — XGBoost]] or [[ML — LightGBM]]
+6. **Tune & explain** — [[ML — Optuna]], [[ML — SHAP]]
+7. **Data versioning** — [[DVC]] → [[ML — DVC]] pipelines with remote storage
+8. **Production** — [[ML — MLflow]] tracking → [[ML — BentoML]] serve via [[API - FastAPI]]
+9. **Scale features** — [[ML — Feast]] when teams share feature definitions
 
 Distributed training/jobs: [[Processing]] — [[Processing — Celery]], [[Processing — Ray]]. Cluster deployment: [[K8S]] — [[Codes/K8S — Workloads]], [[Commands/K8S — kubectl & Minikube]].
 
 ---
 
 ## Related Notes
+
+### Theory
+
+- [[Statistics — Theory & A/B Testing]]
+- [[Machine Learning — Algorithms Theory]]
+- [[Deep Learning — Theory]]
+- [[Transformers — Attention & Architecture]]
 
 ### Foundation & visualization
 
