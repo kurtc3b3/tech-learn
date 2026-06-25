@@ -262,14 +262,14 @@ Hyperparameter search: grid/random ([[ML — scikit-learn]]) or Bayesian ([[ML �
 
 ## When to Use What
 
-| Signal | Start with | Level up |
-| --- | --- | --- |
-| Tabular, need interpretability | Logistic / linear regression | GAM, shallow tree + SHAP |
-| Tabular, moderate data | Random forest | [[ML — XGBoost]], [[ML — LightGBM]] |
-| Text as tabular features | Logistic on TF-IDF | [[NLP]] → embeddings → [[Deep Learning — Theory]] |
-| Images, audio, long sequences | — | [[Deep Learning — Theory]] |
-| Strict latency, small model | Logistic, small tree | Quantized or distilled models |
-| Experiment analysis | [[Statistics — Theory & A/B Testing]] | Not prediction — different goal |
+| Signal                         | Start with                            | Level up                                          |
+| ------------------------------ | ------------------------------------- | ------------------------------------------------- |
+| Tabular, need interpretability | Logistic / linear regression          | GAM, shallow tree + SHAP                          |
+| Tabular, moderate data         | Random forest                         | [[ML — XGBoost]], [[ML — LightGBM]]               |
+| Text as tabular features       | Logistic on TF-IDF                    | [[NLP]] → embeddings → [[Deep Learning — Theory]] |
+| Images, audio, long sequences  | —                                     | [[Deep Learning — Theory]]                        |
+| Strict latency, small model    | Logistic, small tree                  | Quantized or distilled models                     |
+| Experiment analysis            | [[Statistics — Theory & A-B Testing]] | Not prediction — different goal                   |
 
 ---
 
