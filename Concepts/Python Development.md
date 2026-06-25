@@ -638,7 +638,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[CLI]] — git, Docker, Newman + Python Typer
 - [[DB]] — Redis, Kafka, RabbitMQ, Mongo, Neo4j, ELK, Influx, Prometheus/Grafana
 - [[GCP]] — Google Cloud (conceptual map)
-- [[System Design]] — solutions / enterprise architect practice (soft skills, governance, economics)
+- [[System Design]] — solutions / enterprise architect practice + [[System Design — Fundamentals & Patterns]] (scalability, CAP, components)
 - [[Scrum]] — agile delivery (framework, backlog, metrics, scaling)
 - [[Linux]] — server shell, systemd, Bash scripting
 - [[Cybersecurity]] — fundamentals, threats, compliance (concept)

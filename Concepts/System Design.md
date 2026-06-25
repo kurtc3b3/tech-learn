@@ -1,6 +1,6 @@
 **Key Points:**
 
-- **System design here = architect practice** — how solutions and enterprise architects align technology with business outcomes; not low-level distributed-systems patterns (those live under [[DB]], [[K8S]], [[GCP]]).
+- **Two tracks in this series** — **technical fundamentals** (scalability, components, CAP, reference architecture) in [[System Design — Fundamentals & Patterns]]; **architect practice** (stakeholders, governance, economics) in the six notes below.
 - **Soft skills are first-class** — stakeholder trust, clear communication, and governance matter as much as stack choices.
 - **Decisions are trade-offs** — cost, risk, speed, and compliance; document the *why* in ADRs and RFCs.
 - **Delivery ties to agile** — roadmaps and dependencies connect to [[Scrum]] and [[Scrum — Scaling (SAFe & LeSS)]].
@@ -12,7 +12,10 @@
 
 ## What is System Design (in this vault)?
 
-**System design** here means the **professional practice of shaping solutions** — from discovery through delivery, cost, governance, and adoption. It covers what solutions and enterprise architects do *around* the build: who to align with, how to communicate, how to plan and measure, and how to keep decisions durable.
+**System design** spans two complementary views:
+
+1. **Technical fundamentals** — designing scalable, reliable systems: load balancers, caches, replication, consistency, scaling strategies. Start with [[System Design — Fundamentals & Patterns]] (cheatsheet-style); drill into [[DB]], [[K8S]], [[GCP]] for implementation.
+2. **Architect practice** — the **professional practice of shaping solutions** from discovery through delivery, cost, governance, and adoption: who to align with, how to communicate, how to plan and measure, and how to keep decisions durable.
 
 Typical outcomes:
 
@@ -29,6 +32,7 @@ Typical outcomes:
 
 | Theme | Concept note | Core question |
 | --- | --- | --- |
+| Technical fundamentals | [[System Design — Fundamentals & Patterns]] | What components, NFRs, and scaling patterns fit? |
 | People & messaging | [[System Design — Stakeholders & Communication]] | Who cares, and how do we explain the design? |
 | Time & execution | [[System Design — Delivery & Planning]] | What ships when, and what blocks us? |
 | Money & SLOs | [[System Design — Economics & Performance]] | What does it cost, and how do we know it works? |
@@ -43,15 +47,18 @@ Typical outcomes:
 ```mermaid
 flowchart TB
     BIZ[Business goals] --> ARCH[System Design practice]
-    ARCH --> STAKE[[Stakeholders & Communication]]
-    ARCH --> DELIV[[Delivery & Planning]]
-    ARCH --> ECON[[Economics & Performance]]
-    ARCH --> STRAT[[Strategy & Technology]]
-    ARCH --> LEAD[[Leadership & Culture]]
-    ARCH --> GOV[[Governance & Documentation]]
-    STRAT --> TECH[[K8S]] [[DB]] [[GCP]] [[API - FastAPI]]
-    ECON --> OBS[[DB — Prometheus & Grafana]]
-    DELIV --> AGILE[Scrum / SAFe — Inbox]
+    ARCH --> STAKE[Stakeholders and Communication]
+    ARCH --> DELIV[Delivery and Planning]
+    ARCH --> ECON[Economics and Performance]
+    ARCH --> STRAT[Strategy and Technology]
+    ARCH --> LEAD[Leadership and Culture]
+    ARCH --> GOV[Governance and Documentation]
+    STRAT --> K8S[K8S]
+    STRAT --> DB[DB]
+    STRAT --> GCP[GCP]
+    STRAT --> API[FastAPI]
+    ECON --> OBS[Prometheus and Grafana]
+    DELIV --> AGILE[Scrum / SAFe]
 ```
 
 The architect **does not replace** platform notes — they **frame** when to use [[K8S]] vs Cloud Run, when [[DB — Kafka]] beats [[DB — RabbitMQ]], and how [[ORM - SQLAlchemy]] fits the data model.
@@ -62,6 +69,8 @@ The architect **does not replace** platform notes — they **frame** when to use
 
 | Situation | Open |
 | --- | --- |
+| Whiteboard / interview-style design | [[System Design — Fundamentals & Patterns]] |
+| Pick cache vs replica vs shard | [[System Design — Fundamentals & Patterns]] → [[DB]] |
 | Executive asks for a one-pager | [[System Design — Stakeholders & Communication]] |
 | Sprint keeps slipping on cross-team deps | [[System Design — Delivery & Planning]] |
 | Cloud bill spike or build-vs-buy debate | [[System Design — Economics & Performance]] |
@@ -86,17 +95,19 @@ The architect **does not replace** platform notes — they **frame** when to use
 
 ## Recommended Learning Path
 
-1. **Stakeholders & Communication** — map audiences before drawing boxes
-2. **Delivery & Planning** — connect architecture to roadmaps and risk
-3. **Governance & Documentation** — ADRs and review habits early
-4. **Economics & Performance** — cost and KPI literacy before big builds
-5. **Strategy & Technology** — radar and vendor evaluation
-6. **Leadership & Culture** — adoption and cross-functional trust
+1. **Fundamentals & Patterns** — principles, process, reference architecture, CAP
+2. **Stakeholders & Communication** — map audiences before drawing boxes
+3. **Delivery & Planning** — connect architecture to roadmaps and risk
+4. **Governance & Documentation** — ADRs and review habits early
+5. **Economics & Performance** — cost and KPI literacy before big builds
+6. **Strategy & Technology** — radar and vendor evaluation
+7. **Leadership & Culture** — adoption and cross-functional trust
 
 ---
 
 ## Related Notes
 
+- [[System Design — Fundamentals & Patterns]]
 - [[System Design — Stakeholders & Communication]]
 - [[System Design — Delivery & Planning]]
 - [[System Design — Economics & Performance]]

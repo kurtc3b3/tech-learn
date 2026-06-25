@@ -1,5 +1,6 @@
 > **Expanded roadmap:** See [[System Design]] and [[Scrum]] (concept-only). This note is a short checklist — no CLI or code.
 
+- **Technical fundamentals:** Scalability, components, consistency, reference architecture [[System Design — Fundamentals & Patterns]] [[DB]] [[K8S]]
 - **Stakeholders & communication:** Power mapping, executive narrative, conflict resolution [[System Design — Stakeholders & Communication]]
 - **Delivery & planning:** Roadmaps, risks, dependencies with agile execution [[System Design — Delivery & Planning]] [[Scrum]]
 - **Economics & performance:** CapEx/OpEx, FinOps, capacity, SLO thinking [[System Design — Economics & Performance]] [[GCP]]

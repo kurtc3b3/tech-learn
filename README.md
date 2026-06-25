@@ -6,21 +6,22 @@ Obsidian vault for Python, JavaScript/TypeScript, platform, ML, AI, and security
 
 Start with the hub that matches your stack; each links to **Codes** (libraries, patterns) and **Commands** (CLI tools).
 
-| Hub | Focus |
-| --- | --- |
-| [[Python Development]] | Python backend, scraping, APIs, quality |
-| [[JavaScript Development]] | Node, TypeScript, React, Vite, Next.js, frontend libs |
-| [[AI]] | RAG, agents, vector stores, MCP/A2A |
-| [[Machine Learning]] | Training, MLOps, serving |
-| [[Web]] | Python web frameworks (Flask, Django, FastAPI pointer) |
-| [[Browser Automation]] | Playwright, Scrapy, stealth, agent browsers |
-| [[CLI]] | git, Docker, Newman, agent-browser |
-| [[K8S]] | Kubernetes workloads and ops |
-| [[GCP]] | Google Cloud (conceptual) |
-| [[DB]] | Databases and observability stores |
-| [[Cybersecurity]] | Security practice path |
-| [[Load Testing]] | k6, Locust, oha |
-| [[Linting]] | Ruff, mypy, pre-commit |
+| Hub                        | Focus                                                  |
+| -------------------------- | ------------------------------------------------------ |
+| [[Python Development]]     | Python backend, scraping, APIs, quality                |
+| [[JavaScript Development]] | Node, TypeScript, React, Vite, Next.js, frontend libs  |
+| [[AI]]                     | RAG, agents, vector stores, MCP/A2A                    |
+| [[Machine Learning]]       | Training, MLOps, serving                               |
+| [[Web]]                    | Python web frameworks (Flask, Django, FastAPI pointer) |
+| [[Browser Automation]]     | Playwright, Scrapy, stealth, agent browsers            |
+| [[CLI]]                    | git, Docker, Newman, agent-browser                     |
+| [[K8S]]                    | Kubernetes workloads and ops                           |
+| [[GCP]]                    | Google Cloud (conceptual)                              |
+| [[DB]]                     | Databases and observability stores                     |
+| [[Cybersecurity]]          | Security practice path                                 |
+| [[System Design]]          | Architect practice + distributed-systems fundamentals  |
+| [[Load Testing]]           | k6, Locust, oha                                        |
+| [[Linting]]                | Ruff, mypy, pre-commit                                 |
 
 ## Learning roadmaps (Inbox)
 
