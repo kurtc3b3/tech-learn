@@ -72,3 +72,13 @@ Short **from scratch** checklists in **Inbox/**. Each note links into **Concepts
 | Hash & pointers | [[Codes/Algorithms — Hash Map Patterns]], [[Codes/Algorithms — Two Pointers]], [[Codes/Algorithms — Sliding Window]] |
 | Graphs | [[Codes/Algorithms — BFS & DFS]] |
 | Intervals & lists | [[Codes/Algorithms — Merge Intervals]], [[Codes/Algorithms — Fast & Slow Pointers]] |
+
+## ML & data science theory quick map
+
+| Topic | Note |
+| --- | --- |
+| Hub | [[Machine Learning]] |
+| Statistics & A/B testing | [[Statistics — Theory & A/B Testing]] |
+| Regression, trees, ensembles | [[Machine Learning — Algorithms Theory]] |
+| ANN, CNN, RNN, LSTM | [[Deep Learning — Theory]] |
+| Attention & transformers | [[Transformers — Attention & Architecture]] |

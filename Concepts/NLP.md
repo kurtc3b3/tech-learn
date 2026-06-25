@@ -5,6 +5,7 @@
 - **Gensim for topics & embeddings** — Word2Vec, Doc2Vec, LDA, similarity search on large corpora.
 - **TextBlob for quick sentiment** — simple API on top of NLTK; fine for demos, not heavy production loads.
 - **LLM era** — classical NLP still matters for preprocessing, feature extraction, and hybrid RAG (chunk metadata, entity tags).
+- **Transformer theory** — [[Transformers — Attention & Architecture]] for attention, BERT vs GPT, and how modern embeddings relate to classical pipelines.
 
 # NLP — Overview & Text Processing Stack
 
@@ -59,7 +60,7 @@ flowchart LR
 | Sentiment (simple) | TextBlob, spaCy | Prompt + structured output |
 | NER (domain-specific) | spaCy train | LLM extract (costlier) |
 | Summarization | Extractive (Gensim) | abstractive LLM |
-| Embeddings | Gensim Word2Vec, spaCy vectors | OpenAI / sentence-transformers |
+| Embeddings | Gensim Word2Vec, spaCy vectors | OpenAI / sentence-transformers — see [[Transformers — Attention & Architecture]] |
 | Pre-RAG cleanup | spaCy sentences, entities | markdownify + chunk |
 
 Use **both**: spaCy for cheap structure, LLMs for generation and complex extraction.
@@ -85,7 +86,8 @@ Use **both**: spaCy for cheap structure, LLMs for generation and complex extract
 2. **NLTK** — tokenization, stemming, corpora — [[NLP — NLTK]]
 3. **spaCy** — industrial pipelines and NER — [[NLP — spaCy]]
 4. **Gensim** — embeddings and topics at scale — [[NLP — Gensim]]
-5. **Integrate** — FastAPI endpoint + [[ML — MLflow]] or RAG metadata — [[AI]]
+5. **Transformers (concept)** — [[Transformers — Attention & Architecture]] — context for LLM stack
+6. **Integrate** — FastAPI endpoint + [[ML — MLflow]] or RAG metadata — [[AI]]
 
 Foundation: [[ML — pandas]] for text columns, [[Python — re (Regular Expressions)]] for regex cleanup.
 
@@ -110,6 +112,8 @@ Foundation: [[ML — pandas]] for text columns, [[Python — re (Regular Express
 - [[NLP — NLTK]]
 - [[NLP — Gensim]]
 - [[NLP — TextBlob]]
+- [[Transformers — Attention & Architecture]]
+- [[Deep Learning — Theory]]
 - [[AI]]
 - [[Machine Learning]]
 - [[Python — re (Regular Expressions)]]
