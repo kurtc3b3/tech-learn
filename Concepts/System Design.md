@@ -32,7 +32,7 @@ Typical outcomes:
 
 | Theme | Concept note | Core question |
 | --- | --- | --- |
-| Technical fundamentals | [[System Design — Fundamentals & Patterns]] | What components, NFRs, and scaling patterns fit? |
+| Technical fundamentals | [[System Design — Fundamentals & Patterns]] | What components, NFRs, scaling patterns, and 12 core patterns? |
 | People & messaging | [[System Design — Stakeholders & Communication]] | Who cares, and how do we explain the design? |
 | Time & execution | [[System Design — Delivery & Planning]] | What ships when, and what blocks us? |
 | Money & SLOs | [[System Design — Economics & Performance]] | What does it cost, and how do we know it works? |
