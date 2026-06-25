@@ -22,6 +22,7 @@ Start with the hub that matches your stack; each links to **Codes** (libraries, 
 | [[System Design]]          | Architect practice + distributed-systems fundamentals  |
 | [[Load Testing]]           | k6, Locust, oha                                        |
 | [[Linting]]                | Ruff, mypy, pre-commit                                 |
+| [[Algorithms]]             | Interview patterns, DSA, Python code samples             |
 
 ## Learning roadmaps (Inbox)
 
@@ -61,3 +62,13 @@ Short **from scratch** checklists in **Inbox/**. Each note links into **Concepts
 | AI chat UI | [[Codes/JavaScript — assistant-ui]] |
 | Charts | [[Codes/JavaScript — ApexCharts]] |
 | Browser (Node) | [[Codes/JavaScript — Puppeteer]], [[Codes/JavaScript — WebdriverIO]] |
+
+## Algorithms quick map
+
+| Topic | Note |
+| --- | --- |
+| Hub | [[Algorithms]] |
+| Search & arrays | [[Codes/Algorithms — Binary Search]], [[Codes/Algorithms — Prefix Sum]], [[Codes/Algorithms — Kadane's Algorithm]] |
+| Hash & pointers | [[Codes/Algorithms — Hash Map Patterns]], [[Codes/Algorithms — Two Pointers]], [[Codes/Algorithms — Sliding Window]] |
+| Graphs | [[Codes/Algorithms — BFS & DFS]] |
+| Intervals & lists | [[Codes/Algorithms — Merge Intervals]], [[Codes/Algorithms — Fast & Slow Pointers]] |

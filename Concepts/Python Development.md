@@ -211,6 +211,7 @@ fetch → parse → normalize → persist
 | Dependencies | Lock deps with uv or Poetry | [[Python — uv]], [[Python — Poetry]] |
 | Code quality | Ruff + pre-commit on every commit | [[Linting — Ruff]], [[Linting — pre-commit]], [[Linting — mypy]] |
 | Tests | pytest from the first module | [[Unit Testing - pytest]], [[Unit Test - Basic]], [[Unit Test - Fixtures]] |
+| Algorithms (optional) | Interview patterns with Python | [[Algorithms]] |
 
 ### Phase 2 — Cross-cutting concerns
 
@@ -606,6 +607,7 @@ Grouped for lookup; each link is the **how-to** for that library.
 | Quick sentiment prototype?     | [[NLP — TextBlob]]                                               |
 | Background job queue?          | [[Processing — Celery]]                                          |
 | Parallel / distributed Python? | [[Processing — Ray]]                                             |
+| Coding interview pattern?      | [[Algorithms]]                                                   |
 | Deploy containers to cluster?  | [[K8S]] + [[Commands/K8S — kubectl & Minikube]]                  |
 | K8s YAML for Deployments?      | [[Codes/K8S — Workloads]]                                          |
 
@@ -626,6 +628,7 @@ Items referenced in [[Build a Python Backend Application from Scratch]] but not 
 - [[API - FastAPI]] — HTTP APIs
 - [[ORM - SQLAlchemy]] — persistence
 - [[Unit Testing - pytest]] — quality
+- [[Algorithms]] — interview DSA patterns (Python)
 - [[Linting]] — Ruff, mypy, pre-commit
 - [[Browser Automation]] — Playwright, Scrapy, crawl4ai, ScrapeGraphAI, Scrapling
 - [[AI]] — LLM, RAG, agents, vector stores, protocols
