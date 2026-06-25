@@ -5,6 +5,7 @@
 - **Scale horizontally first** — add machines, cache hot paths, async heavy work; vertical scale has a ceiling.
 - **Every component is a trade-off** — CAP, cost, complexity; document decisions in ADRs — [[System Design — Governance & Documentation]].
 - **Link to platform depth** — load balancers and K8s in [[K8S]]; stores and replication in [[DB]]; queues in [[Processing]]; observability in [[DB — Prometheus & Grafana]].
+- **Twelve core patterns** — load balancing through auto scaling; know **when each helps and when it breaks** — see below.
 
 # System Design — Fundamentals & Patterns
 
@@ -135,6 +136,63 @@ flowchart LR
 
 ---
 
+## 12 Architecture Patterns (ByteByteGo-style)
+
+High-level patterns every developer should recognize — and **when they fail**. Maps to common interview and whiteboard topics.
+
+| # | Pattern | One-line | When it helps | When it fails / pitfalls | Vault |
+| --- | --- | --- | --- | --- | --- |
+| 1 | **Load balancing** | Spread traffic across servers | Stateless app tier, horizontal scale | Sticky sessions on wrong LB; one slow node poisons pool without health checks | [[K8S]] Service, Ingress; [[GCP]] |
+| 2 | **Caching** | Hot data in memory | Read-heavy, tolerates staleness | Cache stampede, stale reads, invalidation bugs | [[DB — Redis]] |
+| 3 | **CDN** | Static assets at the edge | Global users, images/JS/CSS | Dynamic HTML not cacheable; cache purge lag | [[GCP]] Cloud CDN |
+| 4 | **Message queue** | Producer enqueues; consumer pulls | Decouple services, smooth spikes, retries | Queue backlog growth; poison messages; ordering needs | [[DB — RabbitMQ]], [[Processing — Celery]] |
+| 5 | **Pub-Sub** | Many subscribers on a topic | Fan-out events (notifications, audit) | Slow subscriber blocks others unless async; no single consumer guarantee | [[DB — Kafka]], [[DB — Redis]] pub/sub |
+| 6 | **API gateway** | Single entry: route, auth, TLS | Many microservices, consistent edge policy | Gateway becomes bottleneck; config sprawl | [[API - FastAPI]] + gateway; [[K8S]] Ingress |
+| 7 | **Circuit breaker** | Stop calling a failing dependency | Cascading failures, flaky downstream | Opens too aggressively (false positives) or too late | App libs (tenacity/resilience4j pattern); design in RFC |
+| 8 | **Service discovery** | Find live instances dynamically | Auto-scaled or ephemeral pods | Stale registry; split-brain during partitions | [[K8S]] DNS + Services; Consul/etcd (concept) |
+| 9 | **Sharding** | Split data by shard key | DB write/read beyond one node | Hot shards, cross-shard joins, rebalancing pain | [[DB — MongoDB]], [[DB — PostgreSQL]] (Citus) |
+| 10 | **Rate limiting** | Cap requests per client/window | Abuse, fairness, protect DB | Legit traffic throttled; distributed limit needs shared store | [[API - FastAPI — Rate Limiting (SlowAPI)]], [[DB — Redis]] |
+| 11 | **Consistent hashing** | Map keys to nodes on a ring | Cache clusters, distributed stores | Uneven vnode distribution; full ring remap on big topology change | [[DB — Redis]] Cluster; CDN origin selection |
+| 12 | **Auto scaling** | Add/remove instances from metrics | Variable load, cost control | Scale lag (cold start); oscillation without cooldown | [[K8S]] HPA; [[GCP]] Cloud Run; [[Load Testing]] |
+
+### Queue vs Pub-Sub
+
+```text
+Message queue (point-to-point):  Producer → [Queue] → one Consumer (or competing consumers)
+Pub-Sub (fan-out):               Publisher → Topic → Subscriber A, B, C (all get copy)
+```
+
+Use a **queue** when exactly one worker should process each job ([[Processing — Celery]]). Use **pub-sub** when many services react to the same event ([[DB — Kafka]] topics).
+
+### Circuit breaker states
+
+```mermaid
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Open: failures exceed threshold
+    Open --> HalfOpen: timeout elapsed
+    HalfOpen --> Closed: probe succeeds
+    HalfOpen --> Open: probe fails
+```
+
+**Closed** — normal calls. **Open** — fail fast, no hammering downstream. **Half-open** — trial request to test recovery. Pair with timeouts and retries — [[Python — tenacity]] for app-level patterns.
+
+### Consistent hashing (why it matters)
+
+Without it, adding a cache node can remap **most** keys. A **hash ring** assigns keys to nodes so only neighbors move when nodes join or leave — critical for [[DB — Redis]] Cluster and large CDN caches.
+
+### Auto scaling signals
+
+| Signal | Scale out when | Watch for |
+| --- | --- | --- |
+| CPU / memory | Sustained high utilization | Lag behind traffic spikes |
+| Request rate / queue depth | Backlog or latency SLO breach | Over-scale on brief bursts |
+| Custom metric | Business KPI (e.g. queue length) | Wrong metric → wrong capacity |
+
+Validate with [[Load Testing]] before trusting HPA rules in production — [[K8S]].
+
+---
+
 ## Data Consistency Models
 
 | Model | Behavior | Use when |
@@ -181,6 +239,7 @@ flowchart LR
 
 | Cheatsheet topic | Architect practice note |
 | --- | --- |
+| 12 patterns — when they fail | Document in ADR + postmortems — [[System Design — Governance & Documentation]] |
 | Process step 7 — review | [[System Design — Governance & Documentation]] |
 | Cost efficiency | [[System Design — Economics & Performance]] |
 | Roadmaps & scope | [[System Design — Delivery & Planning]] |
@@ -207,6 +266,7 @@ flowchart LR
 - [[K8S]]
 - [[GCP]]
 - [[API - FastAPI]]
+- [[API - FastAPI — Rate Limiting (SlowAPI)]]
 - [[Processing]]
 - [[Load Testing]]
 
@@ -214,4 +274,4 @@ flowchart LR
 
 ## Tags
 
-#system-design #distributed-systems #scalability #cap #architecture #nfr #caching #sharding #load-balancing
+#system-design #distributed-systems #scalability #cap #architecture #nfr #caching #sharding #load-balancing #circuit-breaker #pub-sub #rate-limiting #auto-scaling
